@@ -7,6 +7,7 @@
 //
 
 #import "GameEngine.h"
+#import "Robot.h"
 
 @implementation GameEngine
 
@@ -15,17 +16,21 @@
     self = [super init];
     if (self) {
         _arena = arena;
-        [self configureArena];
+        [self placeRobots];
     }
     return self;
 }
 
-- (void)configureArena;
+- (void)placeRobots;
 {
-    [_arena setArenaSize:[self arenaSize]];
+    Robot *firstRobot = [[Robot alloc] initWithX:0 Y:0 teamOne:YES];
+    Robot *secondRobot = [[Robot alloc] initWithX:7 Y:7 teamOne:NO];
+
+    [self.arena placeRobot:firstRobot];
+    [self.arena placeRobot:secondRobot];
 }
 
-- (FTPSize *)arenaSize;
++ (FTPSize *)arenaSize;
 {
     return [[FTPSize alloc] initWithWidth:7 height:7];
 }

@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic, readonly) Arena *arena;
 
-- (FTPSize *)arenaSize;
++ (FTPSize *)arenaSize;
 
 - (instancetype)init NS_UNAVAILABLE;
 

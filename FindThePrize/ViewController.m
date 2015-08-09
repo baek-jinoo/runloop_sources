@@ -39,8 +39,7 @@
 
     self.boardCollectionViewDataSource = [[BoardCollectionViewDataSource alloc] initWithArena:self.gameEngine.arena];
     self.boardCollectionView.dataSource = self.boardCollectionViewDataSource;
-    FTPSize *arenaSize = [self.gameEngine arenaSize];
-    self.boardCollectionViewDelegateFlowLayout = [[BoardCollectionViewDelegateFlowLayout alloc] initWithGridSize:arenaSize.width];
+    self.boardCollectionViewDelegateFlowLayout = [[BoardCollectionViewDelegateFlowLayout alloc] initWithGridSize:[GameEngine arenaSize].width];
     self.boardCollectionView.delegate = self.boardCollectionViewDelegateFlowLayout;
 
     self.firstRobotColorIndicator.image = [UIImage imageNamed:@"robot1_dot"];
@@ -49,7 +48,7 @@
 
 - (void)initializeGame;
 {
-    Arena *arena = [[Arena alloc] init];
+    Arena *arena = [[Arena alloc] initWithArenaSize:[GameEngine arenaSize]];
     self.gameEngine = [[GameEngine alloc] initWithArena:arena];
 }
 

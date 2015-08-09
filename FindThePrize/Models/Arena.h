@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FTPSize.h"
+
+@class Robot;
+@class FTPSize;
 
 @interface Arena : NSObject
 
+- (instancetype)initWithArenaSize:(FTPSize *)size NS_DESIGNATED_INITIALIZER;
+
 @property (strong, nonatomic, readonly) NSArray *cells;
 
-- (void)setArenaSize:(FTPSize *)size;
+- (void)placeRobot:(Robot *)robot;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

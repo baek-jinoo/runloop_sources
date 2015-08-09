@@ -10,6 +10,8 @@
 #import "BoardCellType.h"
 #import "FTPBackgroundCell.h"
 #import "Coordinate.h"
+#import "FTPSize.h"
+#import "Robot.h"
 
 @interface Arena ()
 
@@ -19,14 +21,28 @@
 
 @implementation Arena
 
-- (instancetype)init
+- (instancetype)initWithArenaSize:(FTPSize *)size;
 {
     self = [super init];
     if (self) {
         _internalCells = [NSMutableArray array];
+        [self setArenaSize:size];
     }
     return self;
 }
+
+- (void)placeRobot:(Robot *)robot;
+{
+//    self.internalCells
+
+}
+
+- (NSArray *)cells;
+{
+    return [self.internalCells copy];
+}
+
+#pragma mark - Private
 
 - (void)setArenaSize:(FTPSize *)size;
 {
@@ -42,11 +58,6 @@
     NSUInteger row = index / size.width;
     NSUInteger column = index % size.width;
     return [[Coordinate alloc] initWithX:column Y:row];
-}
-
-- (NSArray *)cells;
-{
-    return [self.internalCells copy];
 }
 
 @end
