@@ -10,4 +10,8 @@
 
 @interface BoardCollectionViewDelegateFlowLayout : NSObject <UICollectionViewDelegateFlowLayout>
 
+- (instancetype)initWithGridSize:(NSUInteger)gridSize NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
+
 @end

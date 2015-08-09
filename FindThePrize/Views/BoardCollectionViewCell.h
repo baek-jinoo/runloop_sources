@@ -7,15 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger, BoardCellType) {
-    BoardCellTypeBackground = 1,
-    BoardCellTypeRobot1Owned,
-    BoardCellTypeRobot1,
-    BoardCellTypeRobot2Owned,
-    BoardCellTypeRobot2,
-    BoardCellTypePrize,
-};
+#import "BoardCellType.h"
 
 @interface BoardCollectionViewCell : UICollectionViewCell
 

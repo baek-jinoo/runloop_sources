@@ -8,17 +8,30 @@
 
 #import "BoardCollectionViewDelegateFlowLayout.h"
 
-#define GridSize 7
+@interface BoardCollectionViewDelegateFlowLayout ()
+
+@property (assign, nonatomic) NSUInteger gridSize;
+
+@end
 
 @implementation BoardCollectionViewDelegateFlowLayout
+
+- (instancetype)initWithGridSize:(NSUInteger)gridSize;
+{
+    self = [super init];
+    if (self) {
+        _gridSize = gridSize;
+    }
+    return self;
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     CGFloat widthOfCollectionView = collectionView.bounds.size.width;
     CGFloat heightOfCollectionView = collectionView.bounds.size.height;
 
-    CGFloat widthOfItem = widthOfCollectionView/GridSize;
-    CGFloat heightOfItem = heightOfCollectionView/GridSize;
+    CGFloat widthOfItem = widthOfCollectionView/self.gridSize;
+    CGFloat heightOfItem = heightOfCollectionView/self.gridSize;
 
     return CGSizeMake(widthOfItem, heightOfItem);
 }

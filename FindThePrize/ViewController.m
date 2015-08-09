@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BoardCollectionViewDataSource.h"
 #import "BoardCollectionViewDelegateFlowLayout.h"
+#import "GameEngine.h"
 
 @interface ViewController ()
 
@@ -21,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *firstRobotScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondRobotScoreLabel;
 
+@property (strong, nonatomic) GameEngine *gameEngine;
+
 @end
 
 @implementation ViewController
@@ -32,14 +35,22 @@
 {
     [super viewDidLoad];
 
-    self.boardCollectionViewDataSource = [[BoardCollectionViewDataSource alloc] init];
-    self.boardCollectionViewDelegateFlowLayout = [[BoardCollectionViewDelegateFlowLayout alloc] init];
+    [self initializeGame];
 
+    self.boardCollectionViewDataSource = [[BoardCollectionViewDataSource alloc] init];
     self.boardCollectionView.dataSource = self.boardCollectionViewDataSource;
+    FTPSize *arenaSize = [self.gameEngine arenaSize];
+    self.boardCollectionViewDelegateFlowLayout = [[BoardCollectionViewDelegateFlowLayout alloc] initWithGridSize:arenaSize.width];
     self.boardCollectionView.delegate = self.boardCollectionViewDelegateFlowLayout;
 
     self.firstRobotColorIndicator.image = [UIImage imageNamed:@"robot1_dot"];
     self.secondRobotColorIndicator.image = [UIImage imageNamed:@"robot2_dot"];
+}
+
+- (void)initializeGame;
+{
+    Arena *arena = [[Arena alloc] init];
+    self.gameEngine = [[GameEngine alloc] initWithArena:arena];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator;
