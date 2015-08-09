@@ -31,40 +31,42 @@
                                     <action selector="restartGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uI4-Vt-au3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXK-N3-ZTp">
-                                <rect key="frame" x="141" y="44" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXK-N3-ZTp" userLabel="Robot 1 Score">
+                                <rect key="frame" x="141" y="45" width="44" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="a1Y-kr-FHQ"/>
+                                    <constraint firstAttribute="width" constant="44" id="a1Y-kr-FHQ">
+                                        <variation key="heightClass=compact" constant="30"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3A-0S-pfZ">
-                                <rect key="frame" x="466" y="44" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3A-0S-pfZ" userLabel="Robot 2 Score">
+                                <rect key="frame" x="466" y="46" width="44" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="cNM-2H-sQj"/>
+                                    <constraint firstAttribute="width" constant="44" id="cNM-2H-sQj">
+                                        <variation key="heightClass=compact" constant="30"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tn-B1-E7a">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAk-BR-dMq" userLabel="Robot 1 Image View">
                                 <rect key="frame" x="91" y="40" width="30" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="97d-Of-a5d"/>
-                                    <constraint firstAttribute="height" constant="30" id="j9a-rB-cCw"/>
+                                    <constraint firstAttribute="width" constant="30" id="8bZ-g6-V7Q"/>
+                                    <constraint firstAttribute="height" constant="30" id="bkA-Y4-Wzf"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJX-Ly-SQ6">
-                                <rect key="frame" x="416" y="40" width="30" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MtD-Yy-Ke2" userLabel="Robot 2 Image View">
+                                <rect key="frame" x="416" y="41" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6ih-6Z-xwh"/>
-                                    <constraint firstAttribute="width" constant="30" id="A1K-D6-62S"/>
+                                    <constraint firstAttribute="width" constant="30" id="iNp-Zz-E1F"/>
+                                    <constraint firstAttribute="height" constant="30" id="mmz-5p-a1m"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U4h-8w-1E9">
                                 <rect key="frame" x="91" y="90" width="419" height="419"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -122,43 +124,39 @@
                             <constraint firstItem="y3c-jy-aDJ" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="U4h-8w-1E9" secondAttribute="top" constant="70" id="8UG-7H-XMh">
                                 <variation key="heightClass=compact" constant="-20"/>
                             </constraint>
-                            <constraint firstItem="8tn-B1-E7a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="9SG-JX-jiR"/>
-                            <constraint firstItem="8tn-B1-E7a" firstAttribute="leading" secondItem="U4h-8w-1E9" secondAttribute="leading" id="ATm-yb-mhV"/>
                             <constraint firstAttribute="centerY" secondItem="U4h-8w-1E9" secondAttribute="centerY" id="Ecz-fI-9V5"/>
                             <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="U4h-8w-1E9" secondAttribute="leading" constant="-20" id="HoI-wt-RMg">
                                 <variation key="heightClass=compact" constant="-20"/>
                             </constraint>
-                            <constraint firstItem="TXK-N3-ZTp" firstAttribute="leading" secondItem="8tn-B1-E7a" secondAttribute="trailing" constant="20" id="Iew-Vg-ZMG"/>
+                            <constraint firstItem="U4h-8w-1E9" firstAttribute="leading" secondItem="bAk-BR-dMq" secondAttribute="leading" id="MPT-9R-fY0"/>
                             <constraint firstItem="Pnf-XM-bQO" firstAttribute="leading" secondItem="U4h-8w-1E9" secondAttribute="trailing" constant="30" id="MUE-tN-IJS">
                                 <variation key="heightClass=compact" constant="30"/>
                             </constraint>
-                            <constraint firstItem="YJX-Ly-SQ6" firstAttribute="centerY" secondItem="f3A-0S-pfZ" secondAttribute="centerY" id="MmX-KG-is4"/>
-                            <constraint firstItem="8tn-B1-E7a" firstAttribute="top" secondItem="U4h-8w-1E9" secondAttribute="top" constant="-5" id="NcV-Vq-Ynn">
-                                <variation key="heightClass=compact" constant="0.0"/>
-                            </constraint>
+                            <constraint firstItem="U4h-8w-1E9" firstAttribute="top" secondItem="bAk-BR-dMq" secondAttribute="top" id="O8s-zZ-BF9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pnf-XM-bQO" secondAttribute="trailing" constant="35" id="ONh-lN-FvX">
                                 <variation key="heightClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="Pnf-XM-bQO" secondAttribute="trailing" constant="20" id="OSA-F3-Z46"/>
                             <constraint firstAttribute="centerX" secondItem="U4h-8w-1E9" secondAttribute="centerX" id="P0M-7Z-Q0x"/>
-                            <constraint firstItem="8tn-B1-E7a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="PXI-0K-xpl"/>
+                            <constraint firstItem="bAk-BR-dMq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="P9y-zR-VZO"/>
+                            <constraint firstItem="TXK-N3-ZTp" firstAttribute="leading" secondItem="bAk-BR-dMq" secondAttribute="trailing" constant="20" id="Pd8-U1-yhN"/>
                             <constraint firstItem="U4h-8w-1E9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QC9-XI-RMH"/>
                             <constraint firstAttribute="centerY" secondItem="U4h-8w-1E9" secondAttribute="centerY" id="Sbd-re-TiK"/>
                             <constraint firstItem="Pnf-XM-bQO" firstAttribute="bottom" secondItem="U4h-8w-1E9" secondAttribute="bottom" constant="20" id="Smp-ho-7bI">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="centerY" secondItem="Pnf-XM-bQO" secondAttribute="centerY" id="TIM-GL-DXz"/>
-                            <constraint firstItem="8tn-B1-E7a" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="U4h-8w-1E9" secondAttribute="top" constant="-20" id="TfS-9Y-F1F"/>
+                            <constraint firstItem="TXK-N3-ZTp" firstAttribute="centerY" secondItem="bAk-BR-dMq" secondAttribute="centerY" id="TMl-XQ-mSk"/>
                             <constraint firstAttribute="centerX" secondItem="U4h-8w-1E9" secondAttribute="centerX" constant="-24" id="Tlh-IF-trp">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="bAk-BR-dMq" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="U4h-8w-1E9" secondAttribute="top" constant="-20" id="UfM-Ri-iQQ"/>
                             <constraint firstItem="U4h-8w-1E9" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="wfy-db-euE" secondAttribute="top" constant="-20" id="VId-y8-FVG">
                                 <variation key="heightClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="U4h-8w-1E9" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Pnf-XM-bQO" secondAttribute="leading" constant="58" id="Wcn-Gy-cTw">
                                 <variation key="heightClass=compact" constant="-20"/>
                             </constraint>
-                            <constraint firstItem="YJX-Ly-SQ6" firstAttribute="bottom" secondItem="U4h-8w-1E9" secondAttribute="bottom" id="YFe-h9-ilo"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pnf-XM-bQO" secondAttribute="bottom" constant="20" id="YOI-f2-Ve5"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="U4h-8w-1E9" secondAttribute="trailing" constant="20" id="YbC-FQ-Pyr"/>
                             <constraint firstAttribute="centerY" secondItem="U4h-8w-1E9" secondAttribute="centerY" constant="15" id="ZXn-RR-JSf">
@@ -167,29 +165,31 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="U4h-8w-1E9" secondAttribute="bottom" id="aT0-mo-bBI">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="8tn-B1-E7a" firstAttribute="centerX" secondItem="YJX-Ly-SQ6" secondAttribute="centerX" id="cIh-PD-vdj"/>
+                            <constraint firstItem="TXK-N3-ZTp" firstAttribute="centerY" secondItem="MtD-Yy-Ke2" secondAttribute="centerY" id="bjS-h8-lOb"/>
                             <constraint firstItem="U4h-8w-1E9" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Pnf-XM-bQO" secondAttribute="leading" constant="-30" id="csn-qD-LaY">
                                 <variation key="heightClass=compact" constant="-30"/>
                             </constraint>
                             <constraint firstAttribute="centerY" secondItem="Pnf-XM-bQO" secondAttribute="centerY" id="g5W-Nt-jZE"/>
+                            <constraint firstItem="bAk-BR-dMq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="38" id="gXZ-iA-34V">
+                                <variation key="heightClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="f3A-0S-pfZ" firstAttribute="trailing" secondItem="U4h-8w-1E9" secondAttribute="trailing" id="gp4-7o-xVF"/>
-                            <constraint firstItem="8tn-B1-E7a" firstAttribute="centerY" secondItem="TXK-N3-ZTp" secondAttribute="centerY" id="iY0-g4-ZVw"/>
                             <constraint firstItem="U4h-8w-1E9" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Pnf-XM-bQO" secondAttribute="top" constant="-20" id="ki3-hK-7pn"/>
+                            <constraint firstItem="MtD-Yy-Ke2" firstAttribute="bottom" secondItem="U4h-8w-1E9" secondAttribute="bottom" id="n08-5d-Eqa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="U4h-8w-1E9" secondAttribute="trailing" id="ncl-Sd-jEG"/>
-                            <constraint firstAttribute="leadingMargin" relation="lessThanOrEqual" secondItem="U4h-8w-1E9" secondAttribute="leading" constant="-20" id="tW1-0o-7Ek"/>
-                            <constraint firstItem="f3A-0S-pfZ" firstAttribute="leading" secondItem="YJX-Ly-SQ6" secondAttribute="trailing" constant="20" id="tqO-lI-z4f"/>
+                            <constraint firstItem="f3A-0S-pfZ" firstAttribute="centerY" secondItem="MtD-Yy-Ke2" secondAttribute="centerY" id="rhi-sL-eEi"/>
+                            <constraint firstItem="f3A-0S-pfZ" firstAttribute="leading" secondItem="MtD-Yy-Ke2" secondAttribute="trailing" constant="20" id="skm-mD-uvA"/>
                             <constraint firstAttribute="centerX" secondItem="Pnf-XM-bQO" secondAttribute="centerX" id="vbG-ax-uCP"/>
-                            <constraint firstItem="TXK-N3-ZTp" firstAttribute="centerY" secondItem="YJX-Ly-SQ6" secondAttribute="centerY" id="zDD-dU-agE"/>
+                            <constraint firstItem="MtD-Yy-Ke2" firstAttribute="leading" secondItem="bAk-BR-dMq" secondAttribute="leading" id="w8c-4p-w1r"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="5gX-tc-Vdf"/>
-                                <exclude reference="NcV-Vq-Ynn"/>
-                                <exclude reference="PXI-0K-xpl"/>
-                                <exclude reference="cIh-PD-vdj"/>
-                                <exclude reference="4VV-cA-xzA"/>
                                 <exclude reference="8UG-7H-XMh"/>
+                                <exclude reference="gXZ-iA-34V"/>
+                                <exclude reference="4VV-cA-xzA"/>
                                 <exclude reference="HoI-wt-RMg"/>
+                                <exclude reference="O8s-zZ-BF9"/>
                                 <exclude reference="QC9-XI-RMH"/>
                                 <exclude reference="Sbd-re-TiK"/>
                                 <exclude reference="Tlh-IF-trp"/>
@@ -198,7 +198,8 @@
                                 <exclude reference="ZXn-RR-JSf"/>
                                 <exclude reference="csn-qD-LaY"/>
                                 <exclude reference="ncl-Sd-jEG"/>
-                                <exclude reference="YFe-h9-ilo"/>
+                                <exclude reference="n08-5d-Eqa"/>
+                                <exclude reference="w8c-4p-w1r"/>
                                 <exclude reference="aT0-mo-bBI"/>
                                 <exclude reference="MUE-tN-IJS"/>
                                 <exclude reference="ONh-lN-FvX"/>
@@ -211,16 +212,15 @@
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <exclude reference="5gX-tc-Vdf"/>
-                                <exclude reference="9SG-JX-jiR"/>
-                                <exclude reference="ATm-yb-mhV"/>
-                                <include reference="NcV-Vq-Ynn"/>
-                                <include reference="PXI-0K-xpl"/>
-                                <exclude reference="TfS-9Y-F1F"/>
-                                <include reference="cIh-PD-vdj"/>
-                                <include reference="4VV-cA-xzA"/>
-                                <exclude reference="zDD-dU-agE"/>
                                 <include reference="8UG-7H-XMh"/>
+                                <exclude reference="P9y-zR-VZO"/>
+                                <exclude reference="UfM-Ri-iQQ"/>
+                                <include reference="gXZ-iA-34V"/>
+                                <include reference="4VV-cA-xzA"/>
+                                <exclude reference="bjS-h8-lOb"/>
                                 <exclude reference="HoI-wt-RMg"/>
+                                <exclude reference="MPT-9R-fY0"/>
+                                <include reference="O8s-zZ-BF9"/>
                                 <exclude reference="P0M-7Z-Q0x"/>
                                 <include reference="Tlh-IF-trp"/>
                                 <include reference="VId-y8-FVG"/>
@@ -228,7 +228,8 @@
                                 <exclude reference="ZXn-RR-JSf"/>
                                 <include reference="csn-qD-LaY"/>
                                 <exclude reference="ki3-hK-7pn"/>
-                                <include reference="YFe-h9-ilo"/>
+                                <include reference="n08-5d-Eqa"/>
+                                <include reference="w8c-4p-w1r"/>
                                 <exclude reference="gp4-7o-xVF"/>
                                 <exclude reference="YOI-f2-Ve5"/>
                                 <exclude reference="aT0-mo-bBI"/>
@@ -244,9 +245,9 @@
                     </view>
                     <connections>
                         <outlet property="boardCollectionView" destination="U4h-8w-1E9" id="YmU-BA-iMK"/>
-                        <outlet property="firstRobotColorIndicator" destination="8tn-B1-E7a" id="p4v-jQ-kQT"/>
+                        <outlet property="firstRobotColorIndicator" destination="bAk-BR-dMq" id="aCd-eX-khg"/>
                         <outlet property="firstRobotScoreLabel" destination="TXK-N3-ZTp" id="Jxd-Kk-Mff"/>
-                        <outlet property="secondRobotColorIndicator" destination="YJX-Ly-SQ6" id="lmr-xd-ZZs"/>
+                        <outlet property="secondRobotColorIndicator" destination="MtD-Yy-Ke2" id="qQC-qN-4Ru"/>
                         <outlet property="secondRobotScoreLabel" destination="f3A-0S-pfZ" id="ekN-ap-9Oi"/>
                     </connections>
                 </viewController>

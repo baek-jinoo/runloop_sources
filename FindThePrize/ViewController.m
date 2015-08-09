@@ -15,8 +15,8 @@
 @property (strong, nonatomic) BoardCollectionViewDataSource *boardCollectionViewDataSource;
 @property (strong, nonatomic) BoardCollectionViewDelegateFlowLayout *boardCollectionViewDelegateFlowLayout;
 
-@property (weak, nonatomic) IBOutlet UIView *firstRobotColorIndicator;
-@property (weak, nonatomic) IBOutlet UIView *secondRobotColorIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *firstRobotColorIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *secondRobotColorIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *firstRobotScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondRobotScoreLabel;
 
@@ -37,10 +37,8 @@
     self.boardCollectionView.dataSource = self.boardCollectionViewDataSource;
     self.boardCollectionView.delegate = self.boardCollectionViewDelegateFlowLayout;
 
-    CALayer *boardCollectionViewLayer = self.boardCollectionView.layer;
-    boardCollectionViewLayer.cornerRadius = 3.0f;
-    boardCollectionViewLayer.borderColor = [UIColor brownColor].CGColor;
-    boardCollectionViewLayer.borderWidth = 1.0f;
+    self.firstRobotColorIndicator.image = [UIImage imageNamed:@"robot1_dot"];
+    self.secondRobotColorIndicator.image = [UIImage imageNamed:@"robot2_dot"];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator;
