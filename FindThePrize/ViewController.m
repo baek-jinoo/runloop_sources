@@ -11,6 +11,7 @@
 #import "BoardCollectionViewDelegateFlowLayout.h"
 
 @interface ViewController ()
+
 @property (weak, nonatomic) IBOutlet UICollectionView *boardCollectionView;
 @property (strong, nonatomic) BoardCollectionViewDataSource *boardCollectionViewDataSource;
 @property (strong, nonatomic) BoardCollectionViewDelegateFlowLayout *boardCollectionViewDelegateFlowLayout;
