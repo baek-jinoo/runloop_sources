@@ -8,16 +8,55 @@
 
 #import "BoardCollectionViewCell.h"
 
+@interface BoardCollectionViewCell ()
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+@end
+
 @implementation BoardCollectionViewCell
 
-- (void)willMoveToSuperview:(UIView *)newSuperview;
+- (void)awakeFromNib;
 {
-    [super willMoveToSuperview:newSuperview];
+    _imageView = [[UIImageView alloc] init];
+    _imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:_imageView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_imageView);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_imageView]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_imageView]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
+
 }
 
-- (void)updateCircleRadius;
+- (void)setBoardType:(BoardCellType)boardCellType;
 {
-    self.layer.cornerRadius = self.bounds.size.width / 2.0;
+    switch (boardCellType) {
+        case BoardCellTypeBackground:
+            self.imageView.image = [UIImage imageNamed:@"background_tile"];
+            break;
+        case BoardCellTypePrize:
+            self.imageView.image = [UIImage imageNamed:@"money_tile"];
+            break;
+        case BoardCellTypeRobot1:
+            self.imageView.image = [UIImage imageNamed:@"robot1_tile"];
+            break;
+        case BoardCellTypeRobot1Owned:
+            self.imageView.image = [UIImage imageNamed:@"robot1_owned_tile"];
+            break;
+        case BoardCellTypeRobot2:
+            self.imageView.image = [UIImage imageNamed:@"robot2_tile"];
+            break;
+        case BoardCellTypeRobot2Owned:
+            self.imageView.image = [UIImage imageNamed:@"robot2_owned_tile"];
+        default:
+            break;
+    }
 }
 
 @end

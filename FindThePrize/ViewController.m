@@ -15,6 +15,11 @@
 @property (strong, nonatomic) BoardCollectionViewDataSource *boardCollectionViewDataSource;
 @property (strong, nonatomic) BoardCollectionViewDelegateFlowLayout *boardCollectionViewDelegateFlowLayout;
 
+@property (weak, nonatomic) IBOutlet UIView *firstRobotColorIndicator;
+@property (weak, nonatomic) IBOutlet UIView *secondRobotColorIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *firstRobotScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondRobotScoreLabel;
+
 @end
 
 @implementation ViewController

@@ -94,7 +94,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.74883939969551983" blue="0.70440422391328217" alpha="1" colorSpace="calibratedRGB"/>
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="default">
@@ -245,6 +244,10 @@
                     </view>
                     <connections>
                         <outlet property="boardCollectionView" destination="U4h-8w-1E9" id="YmU-BA-iMK"/>
+                        <outlet property="firstRobotColorIndicator" destination="8tn-B1-E7a" id="p4v-jQ-kQT"/>
+                        <outlet property="firstRobotScoreLabel" destination="TXK-N3-ZTp" id="Jxd-Kk-Mff"/>
+                        <outlet property="secondRobotColorIndicator" destination="YJX-Ly-SQ6" id="lmr-xd-ZZs"/>
+                        <outlet property="secondRobotScoreLabel" destination="f3A-0S-pfZ" id="ekN-ap-9Oi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

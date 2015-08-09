@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, BoardCellType) {
+    BoardCellTypeBackground = 1,
+    BoardCellTypeRobot1Owned,
+    BoardCellTypeRobot1,
+    BoardCellTypeRobot2Owned,
+    BoardCellTypeRobot2,
+    BoardCellTypePrize,
+};
+
 @interface BoardCollectionViewCell : UICollectionViewCell
 
-- (void)updateCircleRadius;
+- (void)setBoardType:(BoardCellType)boardCellType;
 
 @end
