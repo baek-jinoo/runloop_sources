@@ -12,6 +12,7 @@
 #import "Coordinate.h"
 #import "FTPSize.h"
 #import "Robot.h"
+#import "Cell.h"
 
 @interface Arena ()
 
@@ -38,9 +39,22 @@
     [self.internalCells replaceObjectAtIndex:index withObject:robot];
 }
 
+- (void)placePrizeCell:(id<Cell>)prizeCell;
+{
+    NSUInteger index = [self indexOfArrayForCoordinate:prizeCell.coordinate];
+    [self.internalCells replaceObjectAtIndex:index withObject:prizeCell];
+}
+
 - (NSArray *)cells;
 {
     return [self.internalCells copy];
+}
+
+- (Coordinate *)coordinateWithIndexOfArray:(NSUInteger)index size:(FTPSize *)size; //TODONOW move this to a better place
+{
+    NSUInteger row = index / size.width;
+    NSUInteger column = index % size.width;
+    return [[Coordinate alloc] initWithX:column Y:row];
 }
 
 #pragma mark - Private
@@ -53,13 +67,6 @@
         id<Cell> backgroundCell = [[FTPBackgroundCell alloc] initWithX:coordinate.x Y:coordinate.y];
         [self.internalCells addObject:backgroundCell];
     }
-}
-
-- (Coordinate *)coordinateWithIndexOfArray:(NSUInteger)index size:(FTPSize *)size;
-{
-    NSUInteger row = index / size.width;
-    NSUInteger column = index % size.width;
-    return [[Coordinate alloc] initWithX:column Y:row];
 }
 
 - (NSUInteger)indexOfArrayForCoordinate:(Coordinate *)coordinate;

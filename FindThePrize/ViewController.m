@@ -27,8 +27,7 @@
 @end
 
 @implementation ViewController
-
-- (IBAction)restartGame:(id)sender {
+- (IBAction)startGame:(id)sender {
 }
 
 - (void)viewDidLoad;

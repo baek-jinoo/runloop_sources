@@ -8,6 +8,15 @@
 
 #import "GameEngine.h"
 #import "Robot.h"
+#import "FTPPrizeDispatcher.h"
+
+@interface GameEngine ()
+
+@property (strong, nonatomic) Robot *firstRobot;
+@property (strong, nonatomic) Robot *secondRobot;
+@property (strong, nonatomic) FTPPrizeDispatcher *prizeDispatcher;
+
+@end
 
 @implementation GameEngine
 
@@ -15,19 +24,30 @@
 {
     self = [super init];
     if (self) {
-        _arena = arena;
-        [self placeRobots];
+        [self initializeNewGameWithArena:arena];
     }
     return self;
 }
 
+- (void)initializeNewGameWithArena:(Arena *)arena;
+{
+    _arena = arena;
+    _firstRobot = [[Robot alloc] initWithX:0 Y:0 teamOne:YES];
+    _secondRobot = [[Robot alloc] initWithX:6 Y:6 teamOne:NO];
+    _prizeDispatcher = [[FTPPrizeDispatcher alloc] initWithArena:_arena];
+    [self placeRobots];
+    [self placePrize];
+}
+
 - (void)placeRobots;
 {
-    Robot *firstRobot = [[Robot alloc] initWithX:0 Y:0 teamOne:YES];
-    Robot *secondRobot = [[Robot alloc] initWithX:6 Y:6 teamOne:NO];
+    [self.arena placeRobot:self.firstRobot];
+    [self.arena placeRobot:self.secondRobot];
+}
 
-    [self.arena placeRobot:firstRobot];
-    [self.arena placeRobot:secondRobot];
+- (void)placePrize;
+{
+    [self.prizeDispatcher dispatchPrize];
 }
 
 + (FTPSize *)arenaSize;

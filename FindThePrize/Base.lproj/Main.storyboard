@@ -24,11 +24,11 @@
                                     <constraint firstAttribute="width" constant="50" id="0TD-G6-QzH"/>
                                     <constraint firstAttribute="height" constant="30" id="mVJ-ei-NKq"/>
                                 </constraints>
-                                <state key="normal" title="Restart">
+                                <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="restartGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uI4-Vt-au3"/>
+                                    <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CBG-IE-nX4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXK-N3-ZTp" userLabel="Robot 1 Score">

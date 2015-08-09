@@ -10,6 +10,8 @@
 
 @class Robot;
 @class FTPSize;
+@class Coordinate;
+@protocol Cell;
 
 @interface Arena : NSObject
 
@@ -17,7 +19,12 @@
 
 @property (strong, nonatomic, readonly) NSArray *cells;
 
+- (FTPSize *)size;
+
 - (void)placeRobot:(Robot *)robot;
+- (void)placePrizeCell:(id<Cell>)prizeCell;
+
+- (Coordinate *)coordinateWithIndexOfArray:(NSUInteger)index size:(FTPSize *)size;
 
 - (instancetype)init NS_UNAVAILABLE;
 

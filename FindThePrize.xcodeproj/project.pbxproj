@@ -23,6 +23,8 @@
 		3C8D9B0B1B77FADA001D5BF0 /* GameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B0A1B77FADA001D5BF0 /* GameEngine.m */; };
 		3C8D9B111B77FCDB001D5BF0 /* FTPSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B101B77FCDB001D5BF0 /* FTPSize.m */; };
 		3C8D9B1A1B780095001D5BF0 /* FTPBackgroundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B191B780095001D5BF0 /* FTPBackgroundCell.m */; };
+		3C8D9B201B780AA9001D5BF0 /* FTPPrizeDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B1F1B780AA9001D5BF0 /* FTPPrizeDispatcher.m */; };
+		3C8D9B231B780D22001D5BF0 /* FTPPrizeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B221B780D22001D5BF0 /* FTPPrizeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,10 @@
 		3C8D9B121B77FE81001D5BF0 /* BoardCellType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardCellType.h; sourceTree = "<group>"; };
 		3C8D9B181B780095001D5BF0 /* FTPBackgroundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPBackgroundCell.h; sourceTree = "<group>"; };
 		3C8D9B191B780095001D5BF0 /* FTPBackgroundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPBackgroundCell.m; sourceTree = "<group>"; };
+		3C8D9B1E1B780AA9001D5BF0 /* FTPPrizeDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPPrizeDispatcher.h; sourceTree = "<group>"; };
+		3C8D9B1F1B780AA9001D5BF0 /* FTPPrizeDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPPrizeDispatcher.m; sourceTree = "<group>"; };
+		3C8D9B211B780D22001D5BF0 /* FTPPrizeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPPrizeCell.h; sourceTree = "<group>"; };
+		3C8D9B221B780D22001D5BF0 /* FTPPrizeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPPrizeCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,8 @@
 				3C8D9B0F1B77FCDB001D5BF0 /* FTPSize.h */,
 				3C8D9B101B77FCDB001D5BF0 /* FTPSize.m */,
 				3C8D9B121B77FE81001D5BF0 /* BoardCellType.h */,
+				3C8D9B1E1B780AA9001D5BF0 /* FTPPrizeDispatcher.h */,
+				3C8D9B1F1B780AA9001D5BF0 /* FTPPrizeDispatcher.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +196,8 @@
 				3C8D9B081B77F996001D5BF0 /* Cell.h */,
 				3C8D9B181B780095001D5BF0 /* FTPBackgroundCell.h */,
 				3C8D9B191B780095001D5BF0 /* FTPBackgroundCell.m */,
+				3C8D9B211B780D22001D5BF0 /* FTPPrizeCell.h */,
+				3C8D9B221B780D22001D5BF0 /* FTPPrizeCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -299,9 +309,11 @@
 				3C8D9B0B1B77FADA001D5BF0 /* GameEngine.m in Sources */,
 				3C8D9B111B77FCDB001D5BF0 /* FTPSize.m in Sources */,
 				3C439E841B7735D5008FCBB0 /* BoardCollectionViewCell.m in Sources */,
+				3C8D9B201B780AA9001D5BF0 /* FTPPrizeDispatcher.m in Sources */,
 				3C8D9AFE1B77F79E001D5BF0 /* Robot.m in Sources */,
 				3C2A4C0D1B76DA6800CB19D7 /* AppDelegate.m in Sources */,
 				3C2A4C391B772F8C00CB19D7 /* BoardCollectionViewDelegateFlowLayout.m in Sources */,
+				3C8D9B231B780D22001D5BF0 /* FTPPrizeCell.m in Sources */,
 				3C2A4C0A1B76DA6800CB19D7 /* main.m in Sources */,
 				3C8D9B011B77F7C7001D5BF0 /* Coordinate.m in Sources */,
 			);
