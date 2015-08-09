@@ -31,16 +31,19 @@
 
 - (void)dispatchPrize;
 {
-    NSMutableArray *backgroundCells = [NSMutableArray arrayWithCapacity:self.arena.cells.count];
-    for (id<Cell> cell in self.arena.cells) {
+    BOOL key = YES;
+    NSUInteger randomNumber;
+    while (key) {
+        randomNumber = arc4random() % self.arena.cells.count;
+        id<Cell> cell = [self.arena.cells objectAtIndex:randomNumber];
+
         if ([cell boardCellType] == BoardCellTypeBackground) {
-            [backgroundCells addObject:cell];
+            Coordinate *coordinate = [self.arena coordinateWithIndexOfArray:randomNumber size:self.arena.size];
+            self.prizeCell = [[FTPPrizeCell alloc] initWithX:coordinate.x Y:coordinate.y];
+            [self.arena placePrizeCell:self.prizeCell];
+            key = NO;
         }
     }
-    NSUInteger randomNumber = arc4random() % backgroundCells.count;
-    Coordinate *coordinate = [self.arena coordinateWithIndexOfArray:randomNumber size:self.arena.size];
-    self.prizeCell = [[FTPPrizeCell alloc] initWithX:coordinate.x Y:coordinate.y];
-    [self.arena placePrizeCell:self.prizeCell];
 }
 
 @end
