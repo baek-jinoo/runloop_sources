@@ -1,38 +1,34 @@
 //
-//  Robot.m
+//  FTPBackgroundCell.m
 //  FindThePrize
 //
 //  Created by Jin on 8/9/15.
 //  Copyright (c) 2015 Baek. All rights reserved.
 //
 
-#import "Robot.h"
+#import "FTPBackgroundCell.h"
 
-@interface Robot ()
+
+@interface FTPBackgroundCell ()
 
 @property (strong, nonatomic) Coordinate *coordinate;
-@property (assign, nonatomic) BOOL teamOne;
 
 @end
 
-@implementation Robot
+@implementation FTPBackgroundCell
 
-- (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y teamOne:(BOOL)teamOne;
+- (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y;
 {
     self = [super init];
     if (self) {
         _coordinate = [[Coordinate alloc] initWithX:x Y:y];
-        _teamOne = teamOne;
     }
     return self;
 }
 
 - (BoardCellType)boardCellType;
 {
-    if (self.teamOne) {
-        return BoardCellTypeRobot1;
-    }
-    return BoardCellTypeRobot2;
+    return BoardCellTypeBackground;
 }
 
 @end

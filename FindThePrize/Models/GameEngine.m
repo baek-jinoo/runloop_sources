@@ -15,13 +15,14 @@
     self = [super init];
     if (self) {
         _arena = arena;
+        [self configureArena];
     }
     return self;
 }
 
 - (void)configureArena;
 {
-    [self.arena setArenaSize:[self arenaSize]];
+    [_arena setArenaSize:[self arenaSize]];
 }
 
 - (FTPSize *)arenaSize;

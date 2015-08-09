@@ -8,23 +8,21 @@
 
 #import "BoardCollectionViewDataSource.h"
 #import "BoardCollectionViewCell.h"
+#import "Cell.h"
 
 @interface BoardCollectionViewDataSource ()
 
-@property (strong, nonatomic) NSMutableArray *cellTypes;
+@property (strong, nonatomic) Arena *arena;
 
 @end
 
 @implementation BoardCollectionViewDataSource
 
-- (instancetype)init
+- (instancetype)initWithArena:(Arena *)arena;
 {
     self = [super init];
     if (self) {
-        _cellTypes = [NSMutableArray arrayWithCapacity:49];
-        for (int i = 0; i < 49; i++) {
-            [_cellTypes addObject:@(BoardCellTypeBackground)];
-        }
+        _arena = arena;
     }
     return self;
 }
@@ -36,15 +34,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 {
-    return self.cellTypes.count;
+    return self.arena.cells.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-    BoardCollectionViewCell *cell = (BoardCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    [cell setBoardType:[[self.cellTypes objectAtIndex:indexPath.row] integerValue]];
+    BoardCollectionViewCell *boardCollectionViewCell = (BoardCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
 
-    return cell;
+    id<Cell> cell = (id<Cell>)[self.arena.cells objectAtIndex:indexPath.row];
+    [boardCollectionViewCell setBoardType:[cell boardCellType]];
+
+    return boardCollectionViewCell;
 }
 
 @end

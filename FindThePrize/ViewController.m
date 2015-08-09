@@ -37,7 +37,7 @@
 
     [self initializeGame];
 
-    self.boardCollectionViewDataSource = [[BoardCollectionViewDataSource alloc] init];
+    self.boardCollectionViewDataSource = [[BoardCollectionViewDataSource alloc] initWithArena:self.gameEngine.arena];
     self.boardCollectionView.dataSource = self.boardCollectionViewDataSource;
     FTPSize *arenaSize = [self.gameEngine arenaSize];
     self.boardCollectionViewDelegateFlowLayout = [[BoardCollectionViewDelegateFlowLayout alloc] initWithGridSize:arenaSize.width];

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Arena.h"
 
 @interface BoardCollectionViewDataSource : NSObject <UICollectionViewDataSource>
 
+- (instancetype)initWithArena:(Arena *)arena NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 @end

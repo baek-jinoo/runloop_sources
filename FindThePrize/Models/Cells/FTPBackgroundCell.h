@@ -1,5 +1,5 @@
 //
-//  Robot.h
+//  FTPBackgroundCell.h
 //  FindThePrize
 //
 //  Created by Jin on 8/9/15.
@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Coordinate.h"
 #import "Cell.h"
 
-@interface Robot : NSObject <Cell>
+@interface FTPBackgroundCell : NSObject <Cell>
 
-- (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y teamOne:(BOOL)teamOne NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 

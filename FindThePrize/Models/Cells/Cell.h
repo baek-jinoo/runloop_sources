@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "Coordinate.h"
+#import "BoardCellType.h"
 
 @protocol Cell <NSObject>
 
-@property (strong, nonatomic, readonly) Coordinate *coordinate;
+- (Coordinate *)coordinate;
+- (BoardCellType)boardCellType;
 
 @end
