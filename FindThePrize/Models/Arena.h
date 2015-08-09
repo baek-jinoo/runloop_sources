@@ -23,6 +23,7 @@
 
 - (void)placeRobot:(Robot *)robot;
 - (void)placePrizeCell:(id<Cell>)prizeCell;
+- (void)clearArena;
 
 - (Coordinate *)coordinateWithIndexOfArray:(NSUInteger)index size:(FTPSize *)size;
 

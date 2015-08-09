@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic, readonly) Arena *arena;
 
+- (void)configureNewGame;
+
 + (FTPSize *)arenaSize;
 
 - (instancetype)init NS_UNAVAILABLE;

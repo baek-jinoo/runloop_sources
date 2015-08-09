@@ -27,7 +27,15 @@
 @end
 
 @implementation ViewController
-- (IBAction)startGame:(id)sender {
+- (IBAction)startGame:(id)sender
+{
+
+    [self.gameEngine configureNewGame];
+    [self.boardCollectionView reloadData];
+}
+
+- (IBAction)restartGame:(id)sender;
+{
 }
 
 - (void)viewDidLoad;

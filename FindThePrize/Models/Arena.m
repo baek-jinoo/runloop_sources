@@ -57,6 +57,17 @@
     return [[Coordinate alloc] initWithX:column Y:row];
 }
 
+- (void)clearArena;
+{
+    for (id<Cell> cell in [self.internalCells copy]) {
+        if ([cell boardCellType] != BoardCellTypeBackground) {
+            NSUInteger index = [self indexOfArrayForCoordinate:cell.coordinate];
+            id<Cell> backgroundCell = [[FTPBackgroundCell alloc] initWithX:cell.coordinate.x Y:cell.coordinate.y];
+            [self.internalCells replaceObjectAtIndex:index withObject:backgroundCell];
+        }
+    }
+}
+
 #pragma mark - Private
 
 - (void)setArenaSize:(FTPSize *)size;

@@ -24,17 +24,18 @@
 {
     self = [super init];
     if (self) {
-        [self initializeNewGameWithArena:arena];
+        _arena = arena;
+        [self configureNewGame];
     }
     return self;
 }
 
-- (void)initializeNewGameWithArena:(Arena *)arena;
+- (void)configureNewGame;
 {
-    _arena = arena;
+    [self.arena clearArena];
     _firstRobot = [[Robot alloc] initWithX:0 Y:0 teamOne:YES];
     _secondRobot = [[Robot alloc] initWithX:6 Y:6 teamOne:NO];
-    _prizeDispatcher = [[FTPPrizeDispatcher alloc] initWithArena:_arena];
+    _prizeDispatcher = [[FTPPrizeDispatcher alloc] initWithArena:self.arena];
     [self placeRobots];
     [self placePrize];
 }
