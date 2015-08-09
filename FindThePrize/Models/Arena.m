@@ -16,6 +16,7 @@
 @interface Arena ()
 
 @property (strong, nonatomic) NSMutableArray *internalCells;
+@property (strong, nonatomic) FTPSize *size;
 
 @end
 
@@ -33,8 +34,8 @@
 
 - (void)placeRobot:(Robot *)robot;
 {
-//    self.internalCells
-
+    NSUInteger index = [self indexOfArrayForCoordinate:robot.coordinate];
+    [self.internalCells replaceObjectAtIndex:index withObject:robot];
 }
 
 - (NSArray *)cells;
@@ -46,8 +47,9 @@
 
 - (void)setArenaSize:(FTPSize *)size;
 {
-    for (int i = 0; i < size.width * size.height; i++) {
-        Coordinate *coordinate = [self coordinateWithIndexOfArray:i size:size];
+    _size = size;
+    for (int i = 0; i < _size.width * _size.height; i++) {
+        Coordinate *coordinate = [self coordinateWithIndexOfArray:i size:_size];
         id<Cell> backgroundCell = [[FTPBackgroundCell alloc] initWithX:coordinate.x Y:coordinate.y];
         [self.internalCells addObject:backgroundCell];
     }
@@ -58,6 +60,11 @@
     NSUInteger row = index / size.width;
     NSUInteger column = index % size.width;
     return [[Coordinate alloc] initWithX:column Y:row];
+}
+
+- (NSUInteger)indexOfArrayForCoordinate:(Coordinate *)coordinate;
+{
+    return coordinate.y * self.size.width + coordinate.x;
 }
 
 @end

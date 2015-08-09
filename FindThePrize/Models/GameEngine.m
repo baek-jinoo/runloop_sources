@@ -24,7 +24,7 @@
 - (void)placeRobots;
 {
     Robot *firstRobot = [[Robot alloc] initWithX:0 Y:0 teamOne:YES];
-    Robot *secondRobot = [[Robot alloc] initWithX:7 Y:7 teamOne:NO];
+    Robot *secondRobot = [[Robot alloc] initWithX:6 Y:6 teamOne:NO];
 
     [self.arena placeRobot:firstRobot];
     [self.arena placeRobot:secondRobot];
