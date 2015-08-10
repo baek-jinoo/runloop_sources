@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "GameUIInteracting.h"
+
+@interface ViewController : UIViewController <GameUIInteracting>
 
 
 @end

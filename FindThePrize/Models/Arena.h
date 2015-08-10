@@ -11,7 +11,14 @@
 @class Robot;
 @class FTPSize;
 @class Coordinate;
+@class FTPCommand;
 @protocol Cell;
+
+@protocol ArenaContext <NSObject>
+
+// implement cell at coordinate
+
+@end
 
 @interface Arena : NSObject
 
@@ -24,6 +31,7 @@
 - (void)placeRobot:(Robot *)robot;
 - (void)placePrizeCell:(id<Cell>)prizeCell;
 - (void)clearArena;
+- (void)executeCommand:(FTPCommand *)command;
 
 - (Coordinate *)coordinateWithIndexOfArray:(NSUInteger)index size:(FTPSize *)size;
 

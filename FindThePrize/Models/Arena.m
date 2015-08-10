@@ -68,6 +68,11 @@
     }
 }
 
+- (void)executeCommand:(FTPCommand *)command;
+{
+
+}
+
 #pragma mark - Private
 
 - (void)setArenaSize:(FTPSize *)size;

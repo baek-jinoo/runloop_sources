@@ -25,6 +25,15 @@
 		3C8D9B1A1B780095001D5BF0 /* FTPBackgroundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B191B780095001D5BF0 /* FTPBackgroundCell.m */; };
 		3C8D9B201B780AA9001D5BF0 /* FTPPrizeDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B1F1B780AA9001D5BF0 /* FTPPrizeDispatcher.m */; };
 		3C8D9B231B780D22001D5BF0 /* FTPPrizeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B221B780D22001D5BF0 /* FTPPrizeCell.m */; };
+		3C8D9B261B7814EE001D5BF0 /* FTPBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B251B7814EE001D5BF0 /* FTPBrain.m */; };
+		3C8D9B2C1B782A7B001D5BF0 /* RobotRunLoopContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B291B782A7B001D5BF0 /* RobotRunLoopContext.m */; };
+		3C8D9B2D1B782A7B001D5BF0 /* RobotRunLoopSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B2B1B782A7B001D5BF0 /* RobotRunLoopSource.m */; };
+		3C8D9B301B782AFE001D5BF0 /* MultiThreadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B2F1B782AFE001D5BF0 /* MultiThreadManager.m */; };
+		3C8D9B331B782D2A001D5BF0 /* GameContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B321B782D2A001D5BF0 /* GameContext.m */; };
+		3C8D9B361B7833E6001D5BF0 /* GameEngineRunLoopSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B351B7833E6001D5BF0 /* GameEngineRunLoopSource.m */; };
+		3C8D9B391B7833FE001D5BF0 /* GameEngineRunLoopContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B381B7833FE001D5BF0 /* GameEngineRunLoopContext.m */; };
+		3C8D9B3D1B788AE1001D5BF0 /* FTPCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B3C1B788AE1001D5BF0 /* FTPCommand.m */; };
+		3C8D9B401B791530001D5BF0 /* GameEngineProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D9B3F1B791530001D5BF0 /* GameEngineProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +84,25 @@
 		3C8D9B1F1B780AA9001D5BF0 /* FTPPrizeDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPPrizeDispatcher.m; sourceTree = "<group>"; };
 		3C8D9B211B780D22001D5BF0 /* FTPPrizeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPPrizeCell.h; sourceTree = "<group>"; };
 		3C8D9B221B780D22001D5BF0 /* FTPPrizeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPPrizeCell.m; sourceTree = "<group>"; };
+		3C8D9B241B7814EE001D5BF0 /* FTPBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPBrain.h; sourceTree = "<group>"; };
+		3C8D9B251B7814EE001D5BF0 /* FTPBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPBrain.m; sourceTree = "<group>"; };
+		3C8D9B281B782A7B001D5BF0 /* RobotRunLoopContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotRunLoopContext.h; sourceTree = "<group>"; };
+		3C8D9B291B782A7B001D5BF0 /* RobotRunLoopContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotRunLoopContext.m; sourceTree = "<group>"; };
+		3C8D9B2A1B782A7B001D5BF0 /* RobotRunLoopSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotRunLoopSource.h; sourceTree = "<group>"; };
+		3C8D9B2B1B782A7B001D5BF0 /* RobotRunLoopSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotRunLoopSource.m; sourceTree = "<group>"; };
+		3C8D9B2E1B782AFE001D5BF0 /* MultiThreadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiThreadManager.h; sourceTree = "<group>"; };
+		3C8D9B2F1B782AFE001D5BF0 /* MultiThreadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiThreadManager.m; sourceTree = "<group>"; };
+		3C8D9B311B782D2A001D5BF0 /* GameContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameContext.h; sourceTree = "<group>"; };
+		3C8D9B321B782D2A001D5BF0 /* GameContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameContext.m; sourceTree = "<group>"; };
+		3C8D9B341B7833E6001D5BF0 /* GameEngineRunLoopSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngineRunLoopSource.h; sourceTree = "<group>"; };
+		3C8D9B351B7833E6001D5BF0 /* GameEngineRunLoopSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEngineRunLoopSource.m; sourceTree = "<group>"; };
+		3C8D9B371B7833FE001D5BF0 /* GameEngineRunLoopContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngineRunLoopContext.h; sourceTree = "<group>"; };
+		3C8D9B381B7833FE001D5BF0 /* GameEngineRunLoopContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEngineRunLoopContext.m; sourceTree = "<group>"; };
+		3C8D9B3A1B78878A001D5BF0 /* GameUIInteracting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameUIInteracting.h; sourceTree = "<group>"; };
+		3C8D9B3B1B788AE1001D5BF0 /* FTPCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPCommand.h; sourceTree = "<group>"; };
+		3C8D9B3C1B788AE1001D5BF0 /* FTPCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPCommand.m; sourceTree = "<group>"; };
+		3C8D9B3E1B791530001D5BF0 /* GameEngineProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngineProxy.h; sourceTree = "<group>"; };
+		3C8D9B3F1B791530001D5BF0 /* GameEngineProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEngineProxy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +187,7 @@
 		3C2A4C331B772EB000CB19D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3C8D9B271B782A4E001D5BF0 /* Run Loop */,
 				3C8D9AFB1B77F74D001D5BF0 /* Cells */,
 				3C2A4C371B772F8C00CB19D7 /* BoardCollectionViewDelegateFlowLayout.h */,
 				3C2A4C381B772F8C00CB19D7 /* BoardCollectionViewDelegateFlowLayout.m */,
@@ -173,6 +202,13 @@
 				3C8D9B121B77FE81001D5BF0 /* BoardCellType.h */,
 				3C8D9B1E1B780AA9001D5BF0 /* FTPPrizeDispatcher.h */,
 				3C8D9B1F1B780AA9001D5BF0 /* FTPPrizeDispatcher.m */,
+				3C8D9B241B7814EE001D5BF0 /* FTPBrain.h */,
+				3C8D9B251B7814EE001D5BF0 /* FTPBrain.m */,
+				3C8D9B311B782D2A001D5BF0 /* GameContext.h */,
+				3C8D9B321B782D2A001D5BF0 /* GameContext.m */,
+				3C8D9B3A1B78878A001D5BF0 /* GameUIInteracting.h */,
+				3C8D9B3B1B788AE1001D5BF0 /* FTPCommand.h */,
+				3C8D9B3C1B788AE1001D5BF0 /* FTPCommand.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +236,25 @@
 				3C8D9B221B780D22001D5BF0 /* FTPPrizeCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		3C8D9B271B782A4E001D5BF0 /* Run Loop */ = {
+			isa = PBXGroup;
+			children = (
+				3C8D9B281B782A7B001D5BF0 /* RobotRunLoopContext.h */,
+				3C8D9B291B782A7B001D5BF0 /* RobotRunLoopContext.m */,
+				3C8D9B2A1B782A7B001D5BF0 /* RobotRunLoopSource.h */,
+				3C8D9B2B1B782A7B001D5BF0 /* RobotRunLoopSource.m */,
+				3C8D9B2E1B782AFE001D5BF0 /* MultiThreadManager.h */,
+				3C8D9B2F1B782AFE001D5BF0 /* MultiThreadManager.m */,
+				3C8D9B371B7833FE001D5BF0 /* GameEngineRunLoopContext.h */,
+				3C8D9B381B7833FE001D5BF0 /* GameEngineRunLoopContext.m */,
+				3C8D9B341B7833E6001D5BF0 /* GameEngineRunLoopSource.h */,
+				3C8D9B351B7833E6001D5BF0 /* GameEngineRunLoopSource.m */,
+				3C8D9B3E1B791530001D5BF0 /* GameEngineProxy.h */,
+				3C8D9B3F1B791530001D5BF0 /* GameEngineProxy.m */,
+			);
+			path = "Run Loop";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,19 +357,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8D9B401B791530001D5BF0 /* GameEngineProxy.m in Sources */,
+				3C8D9B331B782D2A001D5BF0 /* GameContext.m in Sources */,
 				3C8D9B1A1B780095001D5BF0 /* FTPBackgroundCell.m in Sources */,
 				3C8D9B071B77F96F001D5BF0 /* Arena.m in Sources */,
 				3C2A4C101B76DA6800CB19D7 /* ViewController.m in Sources */,
+				3C8D9B391B7833FE001D5BF0 /* GameEngineRunLoopContext.m in Sources */,
+				3C8D9B361B7833E6001D5BF0 /* GameEngineRunLoopSource.m in Sources */,
 				3C2A4C3C1B77316B00CB19D7 /* BoardCollectionViewDataSource.m in Sources */,
 				3C8D9B0B1B77FADA001D5BF0 /* GameEngine.m in Sources */,
+				3C8D9B3D1B788AE1001D5BF0 /* FTPCommand.m in Sources */,
 				3C8D9B111B77FCDB001D5BF0 /* FTPSize.m in Sources */,
 				3C439E841B7735D5008FCBB0 /* BoardCollectionViewCell.m in Sources */,
 				3C8D9B201B780AA9001D5BF0 /* FTPPrizeDispatcher.m in Sources */,
 				3C8D9AFE1B77F79E001D5BF0 /* Robot.m in Sources */,
+				3C8D9B301B782AFE001D5BF0 /* MultiThreadManager.m in Sources */,
 				3C2A4C0D1B76DA6800CB19D7 /* AppDelegate.m in Sources */,
+				3C8D9B2C1B782A7B001D5BF0 /* RobotRunLoopContext.m in Sources */,
 				3C2A4C391B772F8C00CB19D7 /* BoardCollectionViewDelegateFlowLayout.m in Sources */,
+				3C8D9B261B7814EE001D5BF0 /* FTPBrain.m in Sources */,
 				3C8D9B231B780D22001D5BF0 /* FTPPrizeCell.m in Sources */,
 				3C2A4C0A1B76DA6800CB19D7 /* main.m in Sources */,
+				3C8D9B2D1B782A7B001D5BF0 /* RobotRunLoopSource.m in Sources */,
 				3C8D9B011B77F7C7001D5BF0 /* Coordinate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@
 #import "BoardCollectionViewDataSource.h"
 #import "BoardCollectionViewDelegateFlowLayout.h"
 #import "GameEngine.h"
+#import "FTPSize.h"
 
 @interface ViewController ()
 
@@ -29,13 +30,20 @@
 @implementation ViewController
 - (IBAction)startGame:(id)sender
 {
-
-    [self.gameEngine configureNewGame];
-    [self.boardCollectionView reloadData];
+    [self.gameEngine startGame];
 }
 
 - (IBAction)restartGame:(id)sender;
 {
+    [self.gameEngine configureNewGame];
+    [self.boardCollectionView reloadData];
+    //clear out the score boards
+    [self.gameEngine startGame];
+}
+
+- (void)updateScreen;
+{
+    [self.boardCollectionView reloadData];
 }
 
 - (void)viewDidLoad;
@@ -57,6 +65,7 @@
 {
     Arena *arena = [[Arena alloc] initWithArenaSize:[GameEngine arenaSize]];
     self.gameEngine = [[GameEngine alloc] initWithArena:arena];
+    self.gameEngine.gameUIInteractionDelegate = self;
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator;
