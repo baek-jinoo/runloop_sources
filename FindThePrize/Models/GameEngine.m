@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSMutableArray *workers;
 @property (strong, nonatomic) GameEngineProxy *currentGameEngineProxy;
 @property (weak, nonatomic) MultiThreadManager *sharedManager;
+@property (strong, nonatomic) NSTimer *currentTimer;
 
 @end
 
@@ -75,7 +76,9 @@
     }
     [self.arena executeCommand:command];
 
-    [self giveTurnToNextRobotInLine];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(giveTurnToNextRobotInLine) userInfo:nil repeats:NO];
+    self.currentTimer = timer;
+    [[NSRunLoop mainRunLoop] addTimer:self.currentTimer forMode:NSDefaultRunLoopMode];
 }
 
 - (void)totalRobotWorkerSourceRegistered:(NSUInteger)numberOfWorkers;
@@ -87,10 +90,11 @@
 
 - (void)startGame;
 {
+    [self.currentTimer invalidate];
+    [self.currentGameEngineProxy invalidate];
+
     [self configureNewGame];
-    if (self.currentGameEngineProxy) {
-        [self.currentGameEngineProxy invalidate];
-    }
+
     self.currentGameEngineProxy = [[GameEngineProxy alloc] initWithGameEngine:self];
     self.gameEngineRunLoopSource = [[GameEngineRunLoopSource alloc] initWithGameEngineProxy:self.currentGameEngineProxy];
     [self.gameEngineRunLoopSource addToCurrentRunLoop];

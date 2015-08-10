@@ -79,6 +79,11 @@ void MainRunLoopSourceCancelRoutine (void *info, CFRunLoopRef runLoop, CFStringR
     [self.commandsLock lock];
 
     // get the data to do the command in the game engine
+    NSString *stuff = (NSString *)[commands objectAtIndex:0];
+    NSLog(@"this is the stuff: %@", stuff);
+
+    [self.gameEngineProxy executeCommand:nil];
+
 
     // the game engine should then call the next robot's turn
 
