@@ -31,14 +31,7 @@
 - (IBAction)startGame:(id)sender
 {
     [self.gameEngine startGame];
-}
-
-- (IBAction)restartGame:(id)sender;
-{
-    [self.gameEngine configureNewGame];
     [self.boardCollectionView reloadData];
-    //clear out the score boards
-    [self.gameEngine startGame];
 }
 
 - (void)updateScreen;

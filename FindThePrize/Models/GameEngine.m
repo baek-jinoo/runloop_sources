@@ -27,6 +27,7 @@
 @property (assign, nonatomic) NSUInteger turns;
 @property (strong, nonatomic) NSMutableArray *workers;
 @property (strong, nonatomic) GameEngineProxy *currentGameEngineProxy;
+@property (weak, nonatomic) MultiThreadManager *sharedManager;
 
 @end
 
@@ -37,7 +38,7 @@
     self = [super init];
     if (self) {
         _arena = arena;
-        [self configureNewGame];
+        _sharedManager = [MultiThreadManager sharedManager];
     }
     return self;
 }
@@ -86,6 +87,7 @@
 
 - (void)startGame;
 {
+    [self configureNewGame];
     if (self.currentGameEngineProxy) {
         [self.currentGameEngineProxy invalidate];
     }
@@ -93,10 +95,9 @@
     self.gameEngineRunLoopSource = [[GameEngineRunLoopSource alloc] initWithGameEngineProxy:self.currentGameEngineProxy];
     [self.gameEngineRunLoopSource addToCurrentRunLoop];
 
-    MultiThreadManager *sharedManager = [MultiThreadManager sharedManager];
-    sharedManager.gameEngine = self;
+    self.sharedManager.gameEngine = self;
     for (Robot *robot in self.robots) {
-        NSThread *worker = [[NSThread alloc] initWithTarget:sharedManager
+        NSThread *worker = [[NSThread alloc] initWithTarget:self.sharedManager
                                                     selector:@selector(workerThreadWithRobot:)
                                                       object:robot];
         [worker start];
@@ -106,12 +107,11 @@
 
 - (void)giveTurnToNextRobotInLine;
 {
-    MultiThreadManager *sharedManager = [MultiThreadManager sharedManager];
-    GameContext *gameContext = [[GameContext alloc] initWithArenaContext:nil
+    GameContext *gameContext = [[GameContext alloc] initWithArenaContext:nil // TODONOW this needs to be real
                                                          prizeCoordinate:self.prizeDispatcher.prizeCell.coordinate
                                                       opponentCoordinate:self.secondRobot.coordinate
                                                  gameEngineRunLoopSource:self.gameEngineRunLoopSource];
-    [sharedManager pingSourceAtIndex:self.turns gameContext:gameContext];
+    [self.sharedManager pingSourceAtIndex:self.turns gameContext:gameContext];
 }
 
 + (FTPSize *)arenaSize;
