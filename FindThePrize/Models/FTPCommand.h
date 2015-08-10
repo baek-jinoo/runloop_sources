@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, FTPCommandMovementDirection){
 - (instancetype)initWithMovementDirection:(FTPCommandMovementDirection)movementDirection robot:(Robot *)robot NS_DESIGNATED_INITIALIZER;
 
 @property (assign, nonatomic) FTPCommandMovementDirection movementDirection;
-@property (strong, nonatomic) Robot *robot;
+@property (weak, nonatomic) Robot *robot;
 
 - (instancetype)init NS_UNAVAILABLE;
 

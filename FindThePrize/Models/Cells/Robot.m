@@ -8,6 +8,10 @@
 
 #import "Robot.h"
 
+#import "GameContext.h"
+#import "FTPCommand.h"
+#import "Coordinate.h"
+
 @interface Robot ()
 
 @property (strong, nonatomic) Coordinate *coordinate;
@@ -33,6 +37,11 @@
         return BoardCellTypeRobot1;
     }
     return BoardCellTypeRobot2;
+}
+
+- (FTPCommand *)nextCommandWithGameContext:(GameContext *)gameContext;
+{
+    return [[FTPCommand alloc] initWithMovementDirection:FTPCommandMovementDirectionDown robot:self];
 }
 
 @end

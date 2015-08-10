@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Coordinate.h"
+
 #import "Cell.h"
+
+@class GameContext;
+@class FTPCommand;
+@class Coordinate;
 
 @interface Robot : NSObject <Cell>
 
 - (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y teamOne:(BOOL)teamOne NS_DESIGNATED_INITIALIZER;
 
+- (FTPCommand *)nextCommandWithGameContext:(GameContext *)gameContext;
 - (instancetype)init NS_UNAVAILABLE;
 
 @end

@@ -13,6 +13,7 @@
 #import "FTPSize.h"
 #import "Robot.h"
 #import "Cell.h"
+#import "FTPCommand.h"
 
 @interface Arena ()
 
@@ -70,7 +71,8 @@
 
 - (void)executeCommand:(FTPCommand *)command;
 {
-
+    NSLog(@"in arena execute command: %@", command);
+    NSLog(@"in arena execute command with direciton: %ld", (long)command.movementDirection);
 }
 
 #pragma mark - Private

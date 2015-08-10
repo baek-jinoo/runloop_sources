@@ -70,15 +70,21 @@
 
 - (void)executeCommand:(FTPCommand *)command;
 {
-    self.turns = self.turns + 1;
-    if (self.turns >= self.robots.count) {
-        self.turns = 0;
-    }
     [self.arena executeCommand:command];
+
+    [self changeTurnToNextRobot];
 
     NSTimer *timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(giveTurnToNextRobotInLine) userInfo:nil repeats:NO];
     self.currentTimer = timer;
     [[NSRunLoop mainRunLoop] addTimer:self.currentTimer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)changeTurnToNextRobot;
+{
+    self.turns = self.turns + 1;
+    if (self.turns >= self.robots.count) {
+        self.turns = 0;
+    }
 }
 
 - (void)totalRobotWorkerSourceRegistered:(NSUInteger)numberOfWorkers;
