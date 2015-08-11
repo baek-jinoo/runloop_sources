@@ -153,7 +153,6 @@
 {
     GameContext *gameContext = [[GameContext alloc] initWithArenaContext:self.arena
                                                          prizeCoordinate:self.prizeDispatcher.prizeCoordinate
-                                                      opponentCoordinate:self.secondRobot.occupyingCell.coordinate
                                                  gameEngineRunLoopSource:self.gameEngineRunLoopSource];
     [self.sharedManager pingSourceAtIndex:self.turns gameContext:gameContext];
 }

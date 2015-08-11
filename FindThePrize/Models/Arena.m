@@ -38,7 +38,7 @@
     return self;
 }
 
-- (void)insertRobot:(Robot *)robot coordinate:(Coordinate *)coordinate; //TODONOW change name to insert
+- (void)insertRobot:(Robot *)robot coordinate:(Coordinate *)coordinate;
 {
     FTPCell *cell = [self cellAtCoordinate:coordinate];
     [self placeRobot:robot cell:cell];

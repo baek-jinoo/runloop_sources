@@ -20,6 +20,8 @@
 - (NSArray *)cells;
 - (FTPSize *)size;
 
+@property (strong, nonatomic, readonly) NSMutableArray *robots;
+
 @end
 
 @interface Arena : NSObject <ArenaContext>

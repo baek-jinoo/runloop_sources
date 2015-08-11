@@ -11,10 +11,12 @@
 #import "GameContext.h"
 #import "FTPCommand.h"
 #import "Coordinate.h"
+#import "FTPBrain.h"
 
 @interface Robot ()
 
 @property (assign, nonatomic) BOOL teamOne;
+@property (strong, nonatomic) FTPBrain *brain;
 
 @end
 
@@ -26,19 +28,14 @@
     if (self) {
         _teamOne = teamOne;
         _wins = 0;
+        _brain = [[FTPBrain alloc] initWithRobot:self];
     }
     return self;
 }
 
 - (FTPCommand *)nextCommandWithGameContext:(GameContext *)gameContext;
 {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:4];
-    [array addObject:[[FTPCommand alloc] initWithMovementDirection:FTPCommandMovementDirectionDown robot:self]];
-    [array addObject:[[FTPCommand alloc] initWithMovementDirection:FTPCommandMovementDirectionUp robot:self]];
-    [array addObject:[[FTPCommand alloc] initWithMovementDirection:FTPCommandMovementDirectionLeft robot:self]];
-    [array addObject:[[FTPCommand alloc] initWithMovementDirection:FTPCommandMovementDirectionRight robot:self]];
-    NSUInteger randomNumber = arc4random() % array.count;
-    return [array objectAtIndex:randomNumber];
+    return [self.brain nextCommandWithGameContext:gameContext];
 }
 
 @end

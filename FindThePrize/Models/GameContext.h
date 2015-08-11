@@ -16,12 +16,10 @@
 
 - (instancetype)initWithArenaContext:(id<ArenaContext>)arenaContext
                      prizeCoordinate:(Coordinate *)prizeCoordinate
-                  opponentCoordinate:(Coordinate *)opponentCoordinate
              gameEngineRunLoopSource:(GameEngineRunLoopSource *)gameEngineRunLoopSource NS_DESIGNATED_INITIALIZER;
 
 @property (strong, nonatomic, readonly) id<ArenaContext> arenaContext;
 @property (strong, nonatomic, readonly) Coordinate *prizeCoordinate;
-@property (strong, nonatomic, readonly) Coordinate *opponentCoordinate;
 @property (weak, nonatomic, readonly) GameEngineRunLoopSource *gameEngineRunLoopSource;
 
 - (instancetype)init NS_UNAVAILABLE;

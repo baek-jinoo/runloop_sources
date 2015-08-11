@@ -13,14 +13,12 @@
 
 - (instancetype)initWithArenaContext:(id<ArenaContext>)arenaContext
                      prizeCoordinate:(Coordinate *)prizeCoordinate
-                  opponentCoordinate:(Coordinate *)opponentCoordinate
              gameEngineRunLoopSource:(GameEngineRunLoopSource *)gameEngineRunLoopSource;
 {
     self = [super init];
     if (self) {
         _arenaContext = arenaContext;
         _prizeCoordinate = prizeCoordinate;
-        _opponentCoordinate = opponentCoordinate;
         _gameEngineRunLoopSource = gameEngineRunLoopSource;
     }
     return self;
