@@ -7,19 +7,19 @@
 //
 
 #import "FTPPrizeDispatcher.h"
-#import "Arena.h"
+#import "FTPArena.h"
 #import "Cell.h"
 
 @interface FTPPrizeDispatcher ()
 
-@property (strong, nonatomic) Arena *arena;
-@property (strong, nonatomic) Coordinate *prizeCoordinate;
+@property (strong, nonatomic) FTPArena *arena;
+@property (strong, nonatomic) FTPCoordinate *prizeCoordinate;
 
 @end
 
 @implementation FTPPrizeDispatcher
 
-- (instancetype)initWithArena:(Arena *)arena;
+- (instancetype)initWithArena:(FTPArena *)arena;
 {
     self = [super init];
     if (self) {
@@ -36,7 +36,7 @@
         randomNumber = arc4random() % self.arena.cells.count;
         id<Cell> cell = [self.arena.cells objectAtIndex:randomNumber];
 
-        if ([cell boardCellType] == BoardCellTypeBackground) {
+        if ([cell boardCellType] == FTPBoardCellTypeBackground) {
             self.prizeCoordinate = [self.arena coordinateWithIndexOfArray:randomNumber size:self.arena.size];
             [self.arena placePrizeCellAtCoordinate:self.prizeCoordinate];
             key = NO;

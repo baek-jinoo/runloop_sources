@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Robot;
+@class FTPRobot;
 
 typedef NS_ENUM(NSInteger, FTPCommandMovementDirection){
     FTPCommandMovementDirectionUp = 1,
@@ -19,10 +19,10 @@ typedef NS_ENUM(NSInteger, FTPCommandMovementDirection){
 
 @interface FTPCommand : NSObject
 
-- (instancetype)initWithMovementDirection:(FTPCommandMovementDirection)movementDirection robot:(Robot *)robot NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithMovementDirection:(FTPCommandMovementDirection)movementDirection robot:(FTPRobot *)robot NS_DESIGNATED_INITIALIZER;
 
 @property (assign, nonatomic) FTPCommandMovementDirection movementDirection;
-@property (weak, nonatomic) Robot *robot;
+@property (weak, nonatomic) FTPRobot *robot;
 
 - (instancetype)init NS_UNAVAILABLE;
 

@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BoardCellType.h"
-@class Coordinate;
-@class Robot;
+#import "FTPBoardCellType.h"
+@class FTPCoordinate;
+@class FTPRobot;
 
 @protocol Cell <NSObject>
 
-- (Coordinate *)coordinate;
+- (FTPCoordinate *)coordinate;
 - (void)clearCell;
 
-@property (assign, nonatomic, readonly) BoardCellType boardCellType;
+@property (assign, nonatomic, readonly) FTPBoardCellType boardCellType;
 @property (assign, nonatomic, readonly) BOOL hasPrize;
 
 @end

@@ -7,11 +7,11 @@
 //
 
 #import "FTPCommand.h"
-#import "Robot.h"
+#import "FTPRobot.h"
 
 @implementation FTPCommand
 
-- (instancetype)initWithMovementDirection:(FTPCommandMovementDirection)movementDirection robot:(Robot *)robot;
+- (instancetype)initWithMovementDirection:(FTPCommandMovementDirection)movementDirection robot:(FTPRobot *)robot;
 {
     self = [super init];
     if (self) {

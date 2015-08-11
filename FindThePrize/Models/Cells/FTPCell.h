@@ -9,16 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "Cell.h"
 
-@class Robot;
+@class FTPRobot;
 
 @interface FTPCell : NSObject <Cell>
 
-- (instancetype)initWithCoordinate:(Coordinate *)coordinate NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoordinate:(FTPCoordinate *)coordinate NS_DESIGNATED_INITIALIZER;
 
-@property (assign, nonatomic, readwrite) BoardCellType boardCellType;
+@property (assign, nonatomic, readwrite) FTPBoardCellType boardCellType;
 @property (assign, nonatomic, readwrite) BOOL hasPrize;
 @property (assign, nonatomic, readwrite) BOOL isOccupied;
-@property (strong, nonatomic, readwrite) Robot *owner;
+@property (strong, nonatomic, readwrite) FTPRobot *owner;
 
 - (instancetype)init NS_UNAVAILABLE;
 

@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @class FTPCommand;
-@class GameContext;
-@class Robot;
+@class FTPGameContext;
+@class FTPRobot;
 
 @interface FTPBrain : NSObject
 
-- (instancetype)initWithRobot:(Robot *)robot NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithRobot:(FTPRobot *)robot NS_DESIGNATED_INITIALIZER;
 
-- (FTPCommand *)nextCommandWithGameContext:(GameContext *)gameContext;
+- (FTPCommand *)nextCommandWithGameContext:(FTPGameContext *)gameContext;
 
 - (instancetype)init NS_UNAVAILABLE;
 

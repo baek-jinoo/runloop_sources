@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@class Arena;
-@class Coordinate;
+@class FTPArena;
+@class FTPCoordinate;
 @protocol Cell;
 
 @interface FTPPrizeDispatcher : NSObject
 
-- initWithArena:(Arena *)arena NS_DESIGNATED_INITIALIZER;
+- initWithArena:(FTPArena *)arena NS_DESIGNATED_INITIALIZER;
 
 - (void)dispatchPrize;
-@property (strong, nonatomic, readonly) Coordinate *prizeCoordinate;
+@property (strong, nonatomic, readonly) FTPCoordinate *prizeCoordinate;
 
 - (instancetype)init NS_UNAVAILABLE;
 
