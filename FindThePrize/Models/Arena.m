@@ -101,7 +101,14 @@
             newCoordinate = [[Coordinate alloc] initWithX:robotOldCoordinate.x Y:robotOldCoordinate.y - 1];
             robotDestinationIndex = [self indexOfArrayForCoordinate:newCoordinate];
             break;
-
+        case FTPCommandMovementDirectionLeft:
+            newCoordinate = [[Coordinate alloc] initWithX:robotOldCoordinate.x - 1 Y:robotOldCoordinate.y];
+            robotDestinationIndex = [self indexOfArrayForCoordinate:newCoordinate];
+            break;
+        case FTPCommandMovementDirectionRight:
+            newCoordinate = [[Coordinate alloc] initWithX:robotOldCoordinate.x + 1 Y:robotOldCoordinate.y];
+            robotDestinationIndex = [self indexOfArrayForCoordinate:newCoordinate];
+            break;
         default:
             break;
     }
@@ -109,10 +116,16 @@
     if ([self isValidIndex:robotDestinationIndex]) {
         // clear up the old cell
         FTPCell *robotOldCell = robot.occupyingCell;
-        robotOldCell.boardCellType = [self boardCellTypeTrailForRobot:robot];
+        FTPCell *newCellToOccupy = [self cellAtCoordinate:newCoordinate];
+        BoardCellType boardCellTypeTrailForRobot = [self boardCellTypeTrailForRobot:robot];
+        if ([newCellToOccupy boardCellType] == boardCellTypeTrailForRobot) {
+            robotOldCell.boardCellType = BoardCellTypeBackground;
+        }
+        else {
+            robotOldCell.boardCellType = boardCellTypeTrailForRobot;
+        }
 
         // change the new cell
-        FTPCell *newCellToOccupy = [self cellAtCoordinate:newCoordinate];
         robot.occupyingCell = newCellToOccupy;
         newCellToOccupy.boardCellType = [self boardCellTypeForRobot:robot];
     }
