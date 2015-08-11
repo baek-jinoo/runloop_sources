@@ -14,34 +14,29 @@
 
 @interface Robot ()
 
-@property (strong, nonatomic) Coordinate *coordinate;
 @property (assign, nonatomic) BOOL teamOne;
 
 @end
 
 @implementation Robot
 
-- (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y teamOne:(BOOL)teamOne;
+- (instancetype)initWithTeamOne:(BOOL)teamOne;
 {
     self = [super init];
     if (self) {
-        _coordinate = [[Coordinate alloc] initWithX:x Y:y];
         _teamOne = teamOne;
     }
     return self;
 }
 
-- (BoardCellType)boardCellType;
-{
-    if (self.teamOne) {
-        return BoardCellTypeRobot1;
-    }
-    return BoardCellTypeRobot2;
-}
-
 - (FTPCommand *)nextCommandWithGameContext:(GameContext *)gameContext;
 {
-    return [[FTPCommand alloc] initWithMovementDirection:FTPCommandMovementDirectionDown robot:self];
+    if (self.teamOne) {
+        return [[FTPCommand alloc] initWithMovementDirection:FTPCommandMovementDirectionDown robot:self]; // TODONOW make this smart
+    }
+    else {
+        return [[FTPCommand alloc] initWithMovementDirection:FTPCommandMovementDirectionUp robot:self]; // TODONOW make this smart
+    }
 }
 
 @end

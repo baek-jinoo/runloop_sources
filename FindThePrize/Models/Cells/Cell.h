@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Coordinate.h"
 #import "BoardCellType.h"
+@class Coordinate;
+@class Robot;
 
 @protocol Cell <NSObject>
 
 - (Coordinate *)coordinate;
-- (BoardCellType)boardCellType;
+- (void)clearCell;
+
+@property (assign, nonatomic, readonly) BoardCellType boardCellType;
+@property (assign, nonatomic, readonly) BOOL hasPrize;
 
 @end

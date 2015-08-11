@@ -79,6 +79,7 @@ void MainRunLoopSourceCancelRoutine (void *info, CFRunLoopRef runLoop, CFStringR
     [self.commandsLock lock];
 
     FTPCommand *nextCommand = (FTPCommand *)[commands objectAtIndex:0];
+    [commands removeObjectAtIndex:0];
     [self.gameEngineProxy executeCommand:nextCommand];
 
     [self.commandsLock unlock];

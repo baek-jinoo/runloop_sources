@@ -9,12 +9,11 @@
 #import "FTPPrizeDispatcher.h"
 #import "Arena.h"
 #import "Cell.h"
-#import "FTPPrizeCell.h"
 
 @interface FTPPrizeDispatcher ()
 
 @property (strong, nonatomic) Arena *arena;
-@property (strong, nonatomic) id<Cell> prizeCell;
+@property (strong, nonatomic) Coordinate *prizeCoordinate;
 
 @end
 
@@ -38,9 +37,8 @@
         id<Cell> cell = [self.arena.cells objectAtIndex:randomNumber];
 
         if ([cell boardCellType] == BoardCellTypeBackground) {
-            Coordinate *coordinate = [self.arena coordinateWithIndexOfArray:randomNumber size:self.arena.size];
-            self.prizeCell = [[FTPPrizeCell alloc] initWithX:coordinate.x Y:coordinate.y];
-            [self.arena placePrizeCell:self.prizeCell];
+            self.prizeCoordinate = [self.arena coordinateWithIndexOfArray:randomNumber size:self.arena.size];
+            [self.arena placePrizeCellAtCoordinate:self.prizeCoordinate];
             key = NO;
         }
     }

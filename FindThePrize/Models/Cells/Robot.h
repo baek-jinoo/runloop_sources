@@ -13,12 +13,17 @@
 @class GameContext;
 @class FTPCommand;
 @class Coordinate;
+@protocol Cell;
 
-@interface Robot : NSObject <Cell>
+@interface Robot : NSObject
 
-- (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y teamOne:(BOOL)teamOne NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTeamOne:(BOOL)teamOne NS_DESIGNATED_INITIALIZER;
 
 - (FTPCommand *)nextCommandWithGameContext:(GameContext *)gameContext;
+
+@property (assign, nonatomic, readonly) BOOL teamOne;
+@property (weak, nonatomic) id<Cell> occupyingCell;
+
 - (instancetype)init NS_UNAVAILABLE;
 
 @end

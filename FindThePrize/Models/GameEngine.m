@@ -16,6 +16,8 @@
 #import "FTPSize.h"
 #import "FTPCommand.h"
 #import "GameEngineProxy.h"
+#import "Coordinate.h"
+#import "GameUIInteracting.h"
 
 @interface GameEngine ()
 
@@ -47,8 +49,8 @@
 - (void)configureNewGame;
 {
     [self.arena clearArena];
-    _firstRobot = [[Robot alloc] initWithX:0 Y:0 teamOne:YES];
-    _secondRobot = [[Robot alloc] initWithX:6 Y:6 teamOne:NO];
+    _firstRobot = [[Robot alloc] initWithTeamOne:YES];
+    _secondRobot = [[Robot alloc] initWithTeamOne:NO];
     _robots = @[_firstRobot, _secondRobot];
     _workers = [NSMutableArray arrayWithCapacity:_robots.count];
     _turns = 0;
@@ -59,8 +61,8 @@
 
 - (void)placeRobots;
 {
-    [self.arena placeRobot:self.firstRobot];
-    [self.arena placeRobot:self.secondRobot];
+    [self.arena placeRobot:self.firstRobot coordinate:[Coordinate withX:0 Y:0]];
+    [self.arena placeRobot:self.secondRobot coordinate:[Coordinate withX:6 Y:6]];
 }
 
 - (void)placePrize;
@@ -71,6 +73,8 @@
 - (void)executeCommand:(FTPCommand *)command;
 {
     [self.arena executeCommand:command];
+
+    [self.gameUIInteractionDelegate updateScreen];
 
     [self changeTurnToNextRobot];
 
@@ -118,8 +122,8 @@
 - (void)giveTurnToNextRobotInLine;
 {
     GameContext *gameContext = [[GameContext alloc] initWithArenaContext:nil // TODONOW this needs to be real
-                                                         prizeCoordinate:self.prizeDispatcher.prizeCell.coordinate
-                                                      opponentCoordinate:self.secondRobot.coordinate
+                                                         prizeCoordinate:self.prizeDispatcher.prizeCoordinate
+                                                      opponentCoordinate:self.secondRobot.occupyingCell.coordinate
                                                  gameEngineRunLoopSource:self.gameEngineRunLoopSource];
     [self.sharedManager pingSourceAtIndex:self.turns gameContext:gameContext];
 }

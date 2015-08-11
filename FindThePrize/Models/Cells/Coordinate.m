@@ -20,4 +20,10 @@
     return self;
 }
 
++ (instancetype)withX:(NSUInteger)x Y:(NSUInteger)y;
+{
+    return [[self alloc] initWithX:x Y:y];
+
+}
+
 @end

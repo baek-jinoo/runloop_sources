@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class Arena;
+@class Coordinate;
 @protocol Cell;
 
 @interface FTPPrizeDispatcher : NSObject
@@ -16,7 +17,7 @@
 - initWithArena:(Arena *)arena NS_DESIGNATED_INITIALIZER;
 
 - (void)dispatchPrize;
-- (id<Cell>)prizeCell;
+@property (strong, nonatomic, readonly) Coordinate *prizeCoordinate;
 
 - (instancetype)init NS_UNAVAILABLE;
 

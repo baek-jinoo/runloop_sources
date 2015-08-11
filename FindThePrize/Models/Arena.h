@@ -18,18 +18,17 @@
 
 // implement cell at coordinate
 
+- (NSArray *)cells;
+- (FTPSize *)size;
+
 @end
 
-@interface Arena : NSObject
+@interface Arena : NSObject <ArenaContext>
 
 - (instancetype)initWithArenaSize:(FTPSize *)size NS_DESIGNATED_INITIALIZER;
 
-@property (strong, nonatomic, readonly) NSArray *cells;
-
-- (FTPSize *)size;
-
-- (void)placeRobot:(Robot *)robot;
-- (void)placePrizeCell:(id<Cell>)prizeCell;
+- (void)placeRobot:(Robot *)robot coordinate:(Coordinate *)coordinate;
+- (void)placePrizeCellAtCoordinate:(Coordinate *)coordinate;
 - (void)clearArena;
 - (void)executeCommand:(FTPCommand *)command;
 
