@@ -50,7 +50,7 @@
     robot.occupyingCell = cell;
     cell.boardCellType = [self boardCellTypeForRobot:robot];
     cell.isOccupied = YES;
-//    cell.trailedByTeamOne = YES;
+    cell.owner = robot;
 }
 
 - (void)placePrizeCellAtCoordinate:(Coordinate *)coordinate;
@@ -126,20 +126,22 @@
         if (newCellToOccupy.isOccupied) {
             return;
         }
+        if (newCellToOccupy.owner && ![newCellToOccupy.owner isEqual:robot]) {
+            return;
+        }
         if ([newCellToOccupy boardCellType] == BoardCellTypePrize) {
             [self.gameWinningDelegate gameWonBy:robot];
             self.winnerDeclared = YES;
             return;
         }
 
-
         // old cell
-        BoardCellType boardCellTypeTrailForRobot = [self boardCellTypeTrailForRobot:robot];
-        if ([newCellToOccupy boardCellType] == boardCellTypeTrailForRobot) {
+        if ([newCellToOccupy.owner isEqual:robot]) {
             robotOldCell.boardCellType = BoardCellTypeBackground;
+            robotOldCell.owner = nil;
         }
         else {
-            robotOldCell.boardCellType = boardCellTypeTrailForRobot;
+            robotOldCell.boardCellType = [self boardCellTypeTrailForRobot:robot];
         }
         robotOldCell.isOccupied = NO;
 

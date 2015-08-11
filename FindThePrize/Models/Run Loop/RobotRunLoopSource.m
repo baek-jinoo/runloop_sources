@@ -80,14 +80,11 @@ void RunLoopSourceCancelRoutine (void *info, CFRunLoopRef runLoop, CFStringRef m
 // Handler method
 - (void)sourceFired;
 {
-    NSLog(@"source fired");
     [self.commandsLock lock];
 
     // do fun stuff with the data
     GameContext *gameContext = (GameContext *)commands.lastObject;
     [commands removeObjectAtIndex:0];
-    NSLog(@"=========>>> %@", gameContext);
-    NSLog(@"=========>>> the robot is: %@", self.robot);
     FTPCommand *nextCommand = [self.robot nextCommandWithGameContext:gameContext];
     [gameContext.gameEngineRunLoopSource addCommand:0 withData:nextCommand];
     [gameContext.gameEngineRunLoopSource fireAllCommandsOnRunLoop:[NSRunLoop mainRunLoop].getCFRunLoop];

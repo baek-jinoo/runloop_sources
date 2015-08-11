@@ -17,8 +17,6 @@
 
 @protocol ArenaContext <NSObject>
 
-// implement cell at coordinate
-
 - (NSArray *)cells;
 - (FTPSize *)size;
 

@@ -41,7 +41,8 @@
 - (void)clearCell;
 {
     self.hasPrize = NO;
-//    self.markedRobot = nil;
+    self.isOccupied = NO;
+    self.owner = nil;
 }
 
 //- (void)occupyWithRobot:(Robot *)robot;
