@@ -54,7 +54,7 @@
     [self.arena clearArena];
     _robots = @[_firstRobot, _secondRobot];
     _workers = [NSMutableArray arrayWithCapacity:_robots.count];
-    _turns = 0;
+    _turns = arc4random() % _robots.count;
     _prizeDispatcher = [[FTPPrizeDispatcher alloc] initWithArena:self.arena];
     [self placeRobots];
     [self placePrize];
@@ -84,7 +84,7 @@
 
     [self changeTurnToNextRobot];
 
-    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(giveTurnToNextRobotInLine) userInfo:nil repeats:NO];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(giveTurnToNextRobotInLine) userInfo:nil repeats:NO];
     self.currentTimer = timer;
     [[NSRunLoop mainRunLoop] addTimer:self.currentTimer forMode:NSDefaultRunLoopMode];
 }
@@ -100,7 +100,9 @@
 - (void)totalRobotWorkerSourceRegistered:(NSUInteger)numberOfWorkers;
 {
     if (numberOfWorkers == self.robots.count) {
-        [self giveTurnToNextRobotInLine];
+        NSTimer *timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(giveTurnToNextRobotInLine) userInfo:nil repeats:NO];
+        self.currentTimer = timer;
+        [[NSRunLoop mainRunLoop] addTimer:self.currentTimer forMode:NSDefaultRunLoopMode];
     }
 }
 
