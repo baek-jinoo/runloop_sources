@@ -66,6 +66,11 @@
     [self.gameEngine totalRobotWorkerSourceRegistered:self.sourcesToPing.count];
 }
 
+- (void)removeAllSource;
+{
+    [self.sourcesToPing removeAllObjects];
+}
+
 - (void)removeSource:(RobotRunLoopContext *)robotRunLoopContext;
 {
     id  objectToRemove = nil;

@@ -22,6 +22,7 @@
 
 - (void)registerSource:(RobotRunLoopContext *)robotRunLoopContext;
 - (void)removeSource:(RobotRunLoopContext *)robotRunLoopContext;
+- (void)removeAllSource;
 
 - (void)removeMainThreadSource:(GameEngineRunLoopContext *)gameEngineRunLoopContext;
 - (void)registerMainThreadSource:(GameEngineRunLoopContext *)gameEngineRunLoopContext;

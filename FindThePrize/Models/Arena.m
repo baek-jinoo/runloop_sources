@@ -66,6 +66,7 @@
 {
     for (FTPCell *cell in self.internalCells) {
         [cell clearCell];
+        cell.boardCellType = BoardCellTypeBackground;
     }
     [self.robots removeAllObjects];
 }

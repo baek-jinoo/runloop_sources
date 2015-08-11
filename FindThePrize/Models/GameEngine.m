@@ -102,6 +102,8 @@
 {
     [self.currentTimer invalidate];
     [self.currentGameEngineProxy invalidate];
+    [self.gameEngineRunLoopSource invalidate];
+    [self.sharedManager removeAllSource];
 
     [self configureNewGame];
 
