@@ -41,7 +41,10 @@
     self = [super init];
     if (self) {
         _arena = arena;
+        _arena.gameWinningDelegate = self;
         _sharedManager = [MultiThreadManager sharedManager];
+        _firstRobot = [[Robot alloc] initWithTeamOne:YES];
+        _secondRobot = [[Robot alloc] initWithTeamOne:NO];
     }
     return self;
 }
@@ -49,8 +52,6 @@
 - (void)configureNewGame;
 {
     [self.arena clearArena];
-    _firstRobot = [[Robot alloc] initWithTeamOne:YES];
-    _secondRobot = [[Robot alloc] initWithTeamOne:NO];
     _robots = @[_firstRobot, _secondRobot];
     _workers = [NSMutableArray arrayWithCapacity:_robots.count];
     _turns = 0;
@@ -73,12 +74,17 @@
 - (void)executeCommand:(FTPCommand *)command;
 {
     [self.arena executeCommand:command];
+    if (self.arena.winnerDeclared) {
+        [self.gameUIInteractionDelegate updateScores];
+        [self restartGame];
+        return;
+    }
 
     [self.gameUIInteractionDelegate updateScreen];
 
     [self changeTurnToNextRobot];
 
-    NSTimer *timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(giveTurnToNextRobotInLine) userInfo:nil repeats:NO];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(giveTurnToNextRobotInLine) userInfo:nil repeats:NO];
     self.currentTimer = timer;
     [[NSRunLoop mainRunLoop] addTimer:self.currentTimer forMode:NSDefaultRunLoopMode];
 }
@@ -96,6 +102,28 @@
     if (numberOfWorkers == self.robots.count) {
         [self giveTurnToNextRobotInLine];
     }
+}
+
+- (void)gameWonBy:(Robot *)robot;
+{
+    robot.wins = robot.wins + 1;
+}
+
+- (void)restartGame;
+{
+    [self configureNewGame];
+    [self startGame];
+    [self.gameUIInteractionDelegate updateScreen];
+}
+
+- (NSArray *)scores;
+{
+    NSMutableArray *scores = [NSMutableArray arrayWithCapacity:self.robots.count];
+    for (Robot *robot in self.robots) {
+        NSString *score = [NSString stringWithFormat:@"%lu", (unsigned long)robot.wins];
+        [scores addObject:score];
+    }
+    return scores;
 }
 
 - (void)startGame;

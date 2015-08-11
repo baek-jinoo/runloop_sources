@@ -67,4 +67,11 @@
     [self.boardCollectionView reloadData];
 }
 
+- (void)updateScores;
+{
+    NSArray *scores = [self.gameEngine scores];
+    self.firstRobotScoreLabel.text = [scores objectAtIndex:0];
+    self.secondRobotScoreLabel.text = [scores objectAtIndex:1];
+}
+
 @end

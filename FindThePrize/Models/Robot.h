@@ -23,6 +23,7 @@
 
 @property (assign, nonatomic, readonly) BOOL teamOne;
 @property (weak, nonatomic) id<Cell> occupyingCell;
+@property (assign, nonatomic) NSUInteger wins;
 
 - (instancetype)init NS_UNAVAILABLE;
 

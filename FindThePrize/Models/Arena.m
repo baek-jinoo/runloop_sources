@@ -13,12 +13,14 @@
 #import "Robot.h"
 #import "FTPCommand.h"
 #import "FTPCell.h"
+#import "GameEngine.h"
 
 @interface Arena ()
 
 @property (strong, nonatomic) NSMutableArray *internalCells;
 @property (strong, nonatomic) FTPSize *size;
 @property (strong, nonatomic) NSMutableArray *robots;
+@property (assign, nonatomic) BOOL winnerDeclared;
 
 @end
 
@@ -30,6 +32,7 @@
     if (self) {
         _internalCells = [NSMutableArray array];
         _robots = [NSMutableArray array];
+        _winnerDeclared = NO;
         [self setArenaSize:size];
     }
     return self;
@@ -40,6 +43,8 @@
     FTPCell *cell = [self cellAtCoordinate:coordinate];
     robot.occupyingCell = cell;
     cell.boardCellType = [self boardCellTypeForRobot:robot];
+//    cell.isOccupied = YES;
+//    cell.trailedByTeamOne = YES;
     [self.robots addObject:robot];
 }
 
@@ -69,12 +74,11 @@
         cell.boardCellType = BoardCellTypeBackground;
     }
     [self.robots removeAllObjects];
+    self.winnerDeclared = NO;
 }
 
 - (void)executeCommand:(FTPCommand *)command;
 {
-    NSLog(@"in arena execute command: %@", command);
-    NSLog(@"in arena execute command with direciton: %ld", (long)command.movementDirection);
     [self moveRobot:command.robot direction:command.movementDirection];
 }
 
@@ -89,34 +93,37 @@
     }
 
     Coordinate *robotOldCoordinate = robot.occupyingCell.coordinate;
-    NSUInteger robotDestinationIndex;
     Coordinate *newCoordinate;
 
     switch (direction) {
         case FTPCommandMovementDirectionDown:
             newCoordinate = [[Coordinate alloc] initWithX:robotOldCoordinate.x Y:robotOldCoordinate.y + 1];
-            robotDestinationIndex = [self indexOfArrayForCoordinate:newCoordinate];
             break;
         case FTPCommandMovementDirectionUp:
             newCoordinate = [[Coordinate alloc] initWithX:robotOldCoordinate.x Y:robotOldCoordinate.y - 1];
-            robotDestinationIndex = [self indexOfArrayForCoordinate:newCoordinate];
             break;
         case FTPCommandMovementDirectionLeft:
             newCoordinate = [[Coordinate alloc] initWithX:robotOldCoordinate.x - 1 Y:robotOldCoordinate.y];
-            robotDestinationIndex = [self indexOfArrayForCoordinate:newCoordinate];
             break;
         case FTPCommandMovementDirectionRight:
             newCoordinate = [[Coordinate alloc] initWithX:robotOldCoordinate.x + 1 Y:robotOldCoordinate.y];
-            robotDestinationIndex = [self indexOfArrayForCoordinate:newCoordinate];
             break;
         default:
             break;
     }
+    // TODONOW deal with not going into opponent tile
+    // TODONOW deal with not going into opponent's trail
 
-    if ([self isValidIndex:robotDestinationIndex]) {
+    if ([self isValidCoordinate:newCoordinate]) {
         // clear up the old cell
         FTPCell *robotOldCell = robot.occupyingCell;
         FTPCell *newCellToOccupy = [self cellAtCoordinate:newCoordinate];
+
+        if ([newCellToOccupy boardCellType] == BoardCellTypePrize) {
+            [self.gameWinningDelegate gameWonBy:robot];
+            self.winnerDeclared = YES;
+            return;
+        }
         BoardCellType boardCellTypeTrailForRobot = [self boardCellTypeTrailForRobot:robot];
         if ([newCellToOccupy boardCellType] == boardCellTypeTrailForRobot) {
             robotOldCell.boardCellType = BoardCellTypeBackground;
@@ -131,12 +138,22 @@
     }
 }
 
-- (BOOL)isValidIndex:(NSUInteger)index;
+- (BOOL)isValidCoordinate:(Coordinate *)coordinate;
 {
-    if (index > 0 && self.cells.count > index) {
-        return YES;
+    FTPSize *boardSize = [self size];
+    if (coordinate.x < 0) {
+        return NO;
     }
-    return NO;
+    if (coordinate.x >= boardSize.width) {
+        return NO;
+    }
+    if (coordinate.y < 0) {
+        return NO;
+    }
+    if (coordinate.y >= boardSize.height) {
+        return NO;
+    }
+    return YES;
 }
 
 - (void)setArenaSize:(FTPSize *)size;

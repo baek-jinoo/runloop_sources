@@ -11,5 +11,6 @@
 @protocol GameUIInteracting <NSObject>
 
 - (void)updateScreen;
+- (void)updateScores;
 
 @end

@@ -13,6 +13,7 @@
 @class Coordinate;
 @class FTPCommand;
 @protocol Cell;
+@protocol GameWinning;
 
 @protocol ArenaContext <NSObject>
 
@@ -33,6 +34,9 @@
 - (void)executeCommand:(FTPCommand *)command;
 
 - (Coordinate *)coordinateWithIndexOfArray:(NSUInteger)index size:(FTPSize *)size;
+
+@property (assign, nonatomic, readonly) BOOL winnerDeclared;
+@property (weak, nonatomic) id<GameWinning> gameWinningDelegate;
 
 - (instancetype)init NS_UNAVAILABLE;
 

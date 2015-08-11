@@ -10,7 +10,7 @@
 
 @implementation Coordinate
 
-- (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y;
+- (instancetype)initWithX:(NSInteger)x Y:(NSInteger)y;
 {
     self = [super init];
     if (self) {
@@ -20,7 +20,7 @@
     return self;
 }
 
-+ (instancetype)withX:(NSUInteger)x Y:(NSUInteger)y;
++ (instancetype)withX:(NSInteger)x Y:(NSInteger)y;
 {
     return [[self alloc] initWithX:x Y:y];
 

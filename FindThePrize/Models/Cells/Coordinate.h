@@ -10,11 +10,11 @@
 
 @interface Coordinate : NSObject
 
-- (instancetype)initWithX:(NSUInteger)x Y:(NSUInteger)y NS_DESIGNATED_INITIALIZER;
-+ (instancetype)withX:(NSUInteger)x Y:(NSUInteger)y;
+- (instancetype)initWithX:(NSInteger)x Y:(NSInteger)y NS_DESIGNATED_INITIALIZER;
++ (instancetype)withX:(NSInteger)x Y:(NSInteger)y;
 
-@property (assign, nonatomic, readonly) NSUInteger x;
-@property (assign, nonatomic, readonly) NSUInteger y;
+@property (assign, nonatomic, readonly) NSInteger x;
+@property (assign, nonatomic, readonly) NSInteger y;
 
 - (instancetype)init NS_UNAVAILABLE;
 

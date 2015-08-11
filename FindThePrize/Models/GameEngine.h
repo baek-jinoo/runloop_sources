@@ -12,6 +12,7 @@
 @class FTPSize;
 @class FTPCommand;
 @class GameEngineRunLoopSource;
+@class Robot;
 @protocol GameUIInteracting;
 
 @protocol GameEngine <NSObject>
@@ -21,7 +22,13 @@
 
 @end
 
-@interface GameEngine : NSObject <GameEngine>
+@protocol GameWinning <NSObject>
+
+- (void)gameWonBy:(Robot *)robot;
+
+@end
+
+@interface GameEngine : NSObject <GameEngine, GameWinning>
 
 - (instancetype)initWithArena:(Arena *)arena NS_DESIGNATED_INITIALIZER;
 
@@ -31,6 +38,7 @@
 
 - (void)configureNewGame;
 - (void)startGame;
+- (NSArray *)scores;
 
 + (FTPSize *)arenaSize;
 
