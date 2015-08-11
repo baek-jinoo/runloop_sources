@@ -15,6 +15,7 @@
 
 @property (assign, nonatomic, readwrite) BoardCellType boardCellType;
 @property (assign, nonatomic, readwrite) BOOL hasPrize;
+@property (assign, nonatomic, readwrite) BOOL isOccupied;
 
 - (instancetype)init NS_UNAVAILABLE;
 

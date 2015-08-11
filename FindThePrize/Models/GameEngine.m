@@ -62,8 +62,8 @@
 
 - (void)placeRobots;
 {
-    [self.arena placeRobot:self.firstRobot coordinate:[Coordinate withX:0 Y:0]];
-    [self.arena placeRobot:self.secondRobot coordinate:[Coordinate withX:6 Y:6]];
+    [self.arena insertRobot:self.firstRobot coordinate:[Coordinate withX:0 Y:0]];
+    [self.arena insertRobot:self.secondRobot coordinate:[Coordinate withX:6 Y:6]];
 }
 
 - (void)placePrize;

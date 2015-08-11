@@ -28,7 +28,7 @@
 
 - (instancetype)initWithArenaSize:(FTPSize *)size NS_DESIGNATED_INITIALIZER;
 
-- (void)placeRobot:(Robot *)robot coordinate:(Coordinate *)coordinate;
+- (void)insertRobot:(Robot *)robot coordinate:(Coordinate *)coordinate;
 - (void)placePrizeCellAtCoordinate:(Coordinate *)coordinate;
 - (void)clearArena;
 - (void)executeCommand:(FTPCommand *)command;

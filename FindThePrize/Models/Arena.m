@@ -38,14 +38,19 @@
     return self;
 }
 
-- (void)placeRobot:(Robot *)robot coordinate:(Coordinate *)coordinate;
+- (void)insertRobot:(Robot *)robot coordinate:(Coordinate *)coordinate; //TODONOW change name to insert
 {
     FTPCell *cell = [self cellAtCoordinate:coordinate];
+    [self placeRobot:robot cell:cell];
+    [self.robots addObject:robot];
+}
+
+- (void)placeRobot:(Robot *)robot cell:(FTPCell *)cell;
+{
     robot.occupyingCell = cell;
     cell.boardCellType = [self boardCellTypeForRobot:robot];
-//    cell.isOccupied = YES;
+    cell.isOccupied = YES;
 //    cell.trailedByTeamOne = YES;
-    [self.robots addObject:robot];
 }
 
 - (void)placePrizeCellAtCoordinate:(Coordinate *)coordinate;
@@ -111,7 +116,6 @@
         default:
             break;
     }
-    // TODONOW deal with not going into opponent tile
     // TODONOW deal with not going into opponent's trail
 
     if ([self isValidCoordinate:newCoordinate]) {
@@ -119,11 +123,17 @@
         FTPCell *robotOldCell = robot.occupyingCell;
         FTPCell *newCellToOccupy = [self cellAtCoordinate:newCoordinate];
 
+        if (newCellToOccupy.isOccupied) {
+            return;
+        }
         if ([newCellToOccupy boardCellType] == BoardCellTypePrize) {
             [self.gameWinningDelegate gameWonBy:robot];
             self.winnerDeclared = YES;
             return;
         }
+
+
+        // old cell
         BoardCellType boardCellTypeTrailForRobot = [self boardCellTypeTrailForRobot:robot];
         if ([newCellToOccupy boardCellType] == boardCellTypeTrailForRobot) {
             robotOldCell.boardCellType = BoardCellTypeBackground;
@@ -131,10 +141,10 @@
         else {
             robotOldCell.boardCellType = boardCellTypeTrailForRobot;
         }
+        robotOldCell.isOccupied = NO;
 
         // change the new cell
-        robot.occupyingCell = newCellToOccupy;
-        newCellToOccupy.boardCellType = [self boardCellTypeForRobot:robot];
+        [self placeRobot:robot cell:newCellToOccupy];
     }
 }
 
